@@ -1,0 +1,6 @@
+siuba
+nbconvert
+ipykernel
+ipython
+nbformat
+jupyter

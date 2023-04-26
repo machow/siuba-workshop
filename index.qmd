@@ -1,0 +1,74 @@
+---
+title: "siuba-workshop"
+jupyter:
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+import pandas as pd
+from siuba import *
+
+music_top200 = pd.read_csv("data/music_top200.csv")
+```
+
+### Exercise 1: 
+
+The code below is filtering to keep only hits where `country` is United States.
+Change the filter to get hits from Canada.
+
+
+```{python}
+(music_top200
+  >> filter(_.country == "United States")
+)
+```
+
+```{python}
+(music_top200
+  >> filter(_.country == "Canada")
+)
+```
+
+
+### Exercise 2: 
+
+* Filter to keep tracks where position equals 5.
+
+```{python}
+(music_top200
+  >> filter(_.position == 5)
+)
+```
+
+### Exercise 3:
+
+Find the top 5 songs in Hong Kong.
+
+In the slides we discussed the `==` operator. Here is a longer list of some options!
+
+| operator | meaning |
+| -------- | ------- |
+| `==`     | is equal to |
+| `<`      | is less than |
+| `>`      | is greater than |
+
+
+```{python}
+(music_top200
+  >> filter(_.country == "Hong Kong", _.position < 6)
+)
+```
+
+### Exercise 4: looking at The Weeknd's streams
+
+How many times has The Weeknd had over 1,000,000 streams?
+
+
+```{python}
+(music_top200
+  >> filter(_.artist == "The Weeknd", _.streams > 1000000)
+)
+```
