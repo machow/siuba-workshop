@@ -1,0 +1,242 @@
+---
+title: Introduction to siuba
+format:
+  revealjs
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: venv-intro-to-siuba
+    language: python
+    name: venv-intro-to-siuba
+---
+
+::: {.notes}
+Hi, I'm Michael--the creator of siuba, a library for data analysis in Python.
+
+In this course, you'll use Python to explore and visualize data.
+
+The course is designed for people who have never programmed before,
+and anyone interested in siuba!
+:::
+
+
+# Data Analysis
+
+```{python}
+#| include: false
+#| slideshow: {slide_type: skip}
+#| tags: [hide-cell]
+import pandas as pd
+from siuba import arrange, select, mutate, filter, _
+from plotnine import ggplot, geom_point, coord_flip, aes, labs, geom_text
+
+# data --------------
+from music_top200 import music_top200, track_features
+
+pd.set_option("display.max_rows", 6)
+
+# remove ggplot printout
+from IPython import get_ipython
+html_formatter = get_ipython().display_formatter.formatters['text/html']
+html_formatter.for_type(ggplot, lambda g: "")
+```
+
+
+
+![](model-workflow.png)
+
+::: {.notes}
+Data analysis is the act of using data to produce effective communication.
+Communication that leads to meaningful action.
+
+In this course, we'll focus on one area of data analysis where siuba shines: transforming data.
+
+We'll also combine siuba with a library called plotnine to visualize data. Together, these libraries make a powerful combo.
+:::
+
+# Meet the data: Spotify top 200
+
+![](spotify_site.png)
+
+::: {.notes}
+We'll use data that Spotify publishes every week on the 200 most streamed songs, in 62 different countries.
+
+You can check it out on <a href="https://spotifycharts.com/regional/global/weekly/latest" target ="_blank">spotifycharts.com</a>
+:::
+
+# Meet the data: Spotify top 200
+
+```{python}
+music_top200
+```
+
+::: {.notes}
+The data we'll use is held in a **DataFrame**. A DataFrame is a big table of data, made up of rows and columns. In the example below, the **variable** called `music_top200` lets us refer to and work on the data.
+
+Notice that in the bottom-left of the table, it shows the number of rows and columns. This data has 12,000 rows and 6 columns.
+:::
+
+# Meet the data: Spotify top 200
+
+```python
+music_top200
+```
+
+```{python}
+#| tags: [hide-input]
+from IPython.display import HTML
+
+styles = """
+<style>
+table.dataframe.slides-df__highlight1 tr:nth-child(2) {
+    background-color: yellow;
+}
+</style>
+"""
+HTML(styles + "\n\n" + music_top200.to_html(max_rows = 6, classes="slides-df__highlight1"))
+```
+
+::: {.notes}
+Every observation--or row--in the DataFrame is a track in the top 200 for a country.
+
+For example, in the highlighted code is the track in position 2 (second most streamed) in Argentina. The track name is Tattoo, and has been streamed 1,344,382 times, and is 202 seconds long!
+:::
+
+# Meet the data: Spotify song features
+
+<div style="width: 70%">
+    
+![](plot-weeknd-features.png)
+
+</div>
+
+::: {.notes}
+Later in the course, we'll look at measures Spotify calculates for each song.
+
+Their measures for a song include:
+
+* energy
+* valence (how happy or positive)
+* danceability
+* speechiness
+* acousticness
+:::
+
+# Data Analysis
+
+<div>
+<style scoped>
+.container-00 {
+    display: flex;
+}
+.col-00 {
+    flex: 1;
+    height: 450px;
+}
+.col-00 img {
+    max-height: 50%;
+}
+</style>
+
+<div class="container-00" height="450px">
+
+<div class="col-00" width="50%">
+<img src="plot-line.png">
+<img src="plot-hist.png">
+
+</div>
+
+<div class="col-00" width="50%">
+<img src="plot-point.png">
+<img src="plot-box.png">
+
+</div>
+
+</div>
+</div>
+    
+
+::: {.notes}
+The skills you'll build doing transformation and visualization in this course will allow you to start analyzing your own data.
+
+The course is interactive: between short lessons you'll complete interactive exercises by typing your own code.
+:::
+
+# How code is structured
+
+```{python}
+(track_features
+  >> filter(_.artist == "The Weeknd")
+  >> ggplot(aes("energy", "valence"))
+   + geom_point()
+)
+```
+
+::: {.notes}
+Here's an example of plotting the energy and valence of tracks by The Weeknd. Each point is a single track (for example, the song "Blinding Lights").
+
+The top line of the code is the data. Every additional line is an action applied to the data.
+
+**Click down to see what each line of code does.**
+:::
+
+# How code is structured
+
+```{python}
+(track_features
+  >> filter(_.artist == "The Weeknd")
+
+ 
+)
+```
+
+::: {.notes}
+The first action is filtering the data, to keep only observations (rows) where `artist` is The Weeknd.
+
+Don't worry to much about the details for now. Filter is the first thing you'll learn, once you start the first chapter!
+:::
+
+# How code is structured
+
+```{python}
+(track_features
+  >> filter(_.artist == "The Weeknd")
+  >> ggplot(aes("energy", "valence"))
+ 
+)
+```
+
+::: {.notes}
+The next action, `ggplot(...)`, gets ready to make a plot, based on the data in the previous step.
+:::
+
+# How code is structured
+
+```{python}
+(track_features
+  >> filter(_.artist == "The Weeknd")
+  >> ggplot(aes("energy", "valence"))
+   + geom_point()
+)
+```
+
+::: {.notes}
+Finally, `geom_point()` adds points to the plot. Each point comes from a row of data.
+
+So in this case each point is a track by The Weeknd.
+:::
+
+# Let's practice!
+
+<video width="500" data-autoplay loop controls src="./siuba-intro-controls-500px.mp4" />
+
+::: {.notes}
+For the practice below, you'll get to explore the two datasets by testing out different options.
+
+This is to make sure you get the big picture, before we dive into the specifics of how each piece of code works!
+:::

@@ -1,0 +1,132 @@
+---
+title: Filter
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: wrangle
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: venv-intro-to-siuba
+    language: python
+    name: venv-intro-to-siuba
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+import slides from '../slides/01b-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+### Exercise 1: 
+
+The code below is filtering to keep only hits where `country` is United States.
+Change the filter to get hits from Canada.
+
+```{python}
+(music_top200
+  >> filter(_.country == "United States")
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> filter(_.country == "Canada")
+)
+```
+
+<prompt-expandable header="Comparing results, which artist is in the top 3 in both (the) United States and Canada?">
+
+<q-multiple-choice>
+  <q-opt text="Roddy Ricch"><span>Nailed it!</span></q-opt>
+  <q-opt text="The Weeknd"><span>That artist is only top 3 in the United States</span></q-opt>
+  <q-opt text="Tones And I"><span>That artist is only top 3 in the Canada</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
+
+### Exercise 2: 
+
+* Filter to keep tracks where position equals 5.
+
+```{python}
+(music_top200
+  >> filter(___)
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> filter(_.position == 5)
+)
+```
+
+<prompt-expandable header="Which artist is in position 5 in South Africa?">
+
+<q-multiple-choice>
+  <q-opt text="Bad Bunny"><span></span></q-opt>
+  <q-opt text="Eminem"><span>That's right!</span></q-opt>
+  <q-opt text="BTS"><span></span></q-opt>
+  <q-opt text="Selena Gomes"><span></span></q-opt>  
+</q-multiple-choice>
+
+</prompt-expandable>
+
+### Exercise 3:
+
+Find the top 5 songs in Hong Kong.
+
+In the slides we discussed the `==` operator. Here is a longer list of some options!
+
+| operator | meaning |
+| -------- | ------- |
+| `==`     | is equal to |
+| `<`      | is less than |
+| `>`      | is greater than |
+
+```{python}
+(music_top200
+  >> filter(___, ___)
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> filter(_.country == "Hong Kong", _.position < 6)
+)
+```
+
+### Exercise 4: looking at The Weeknd's streams
+
+How many times has The Weeknd had over 1,000,000 streams?
+
+<details>
+    <summary>Hint:</summary>
+    Do in steps. Run first to get all rows where the artist is The Weeknd, and then modify your code to get where he has over 1,000,000 streams.
+</details>
+
+```{python}
+(
+
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> filter(_.artist == "The Weeknd", _.streams > 1000000)
+)
+```
