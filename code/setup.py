@@ -1,0 +1,35 @@
+# wranglign ---------
+import pandas as pd
+from siuba import *
+
+# plotting ----------
+from plotnine import *
+
+theme_set(theme_classic(base_family = "Noto Sans CJK JP"))
+
+# data --------------
+from music_top200 import music_top200
+from music_top200 import track_features
+
+# student support ----------
+from siuba import pipe
+from IPython.display import HTML, display
+from siututor import Blank
+___ = Blank()
+
+# DataFrame display --------
+pd.set_option("display.max_rows", 6)
+
+from IPython import get_ipython
+# special ipython function to get the html formatter
+html_formatter = get_ipython().display_formatter.formatters['text/html']
+
+# here, we avoid the default df._repr_html_ method, since it inlines css
+# (style tags make vue angry)
+html_formatter.for_type(
+    pd.DataFrame,
+    lambda df: df.to_html(max_rows = pd.get_option("display.max_rows"), show_dimensions = True)
+)
+
+# remove the <ggplot: (528...)> printout
+html_formatter.for_type(ggplot, lambda g: "")
