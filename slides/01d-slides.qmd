@@ -1,0 +1,196 @@
+---
+title: The mutate verb
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: venv-intro-to-siuba
+    language: python
+    name: venv-intro-to-siuba
+---
+
+{{< include _setup.qmd >}}
+
+![](model-mutate.png)
+
+
+You've already learned two verbs for manipulating data: filter for
+extracting a subset of the observations, and arrange for sorting them.
+
+Suppose you want to change one of the variables in your dataset, based on the other ones.
+Or suppose you want to add a new variable.
+
+For that, you would use the mutate verb.
+
+# Using mutate to change a variable
+
+```python
+(music_top200
+  >> mutate(streams = _.streams / 1000)
+)
+```
+
+First you'll learn how to change an existing variable.
+
+You use mutate like you would filter or arrange, after a pipe operator.
+
+Inside this mutate statement, what's on the right of the equals sign is
+what's being calculated, and what's on the left is what's being replaced.
+Here, you're calculating streams slash one thousand.
+
+**(Click the down arrow for a breakdown)**
+
+## Using mutate to change a variable
+
+<pre><code class="language-python">(music_top200
+  >> mutate(streams = <mark>_.streams / 1000</mark>)
+)
+</code></pre>
+
+The slash in Python performs division, so "streams divided by one thousand".
+
+## Using mutate to change a variable
+
+<pre><code class="language-python">(music_top200
+  >> mutate(<mark>streams =</mark> _.streams / 1000)
+)
+</code></pre>
+
+On the left, you're saying you want to replace the existing streams column, by writing streams equals.
+
+# Using mutate to change a variable (result)
+
+```{python}
+(music_top200
+  >> mutate(streams = _.streams / 1000)
+)
+```
+
+The result is the same table, but with streams replaced with a new value, one that's much smaller than it was before.
+
+This is how you manipulate existing variables in the table.
+That's often necessary during data processing and cleaning.
+
+Just like filter and arrange, you're not altering the original music_top200
+data, you're just changing the value in this new data frame that's being returned.
+
+# Using mutate to add a new variable
+
+```{python}
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+)
+```
+
+Alternatively, you may want to add a new variable.
+
+For instance, suppose you want to know the total seconds people have listened to a track.
+
+
+In the data you have a tracks duration in seconds, and its number of streams.
+This means **total time listened is duration multiplied by streams**.
+
+You would use mutate in almost the same way.
+You pipe your music data to the mutate verb.
+
+The asterisk in Python represents multiplication, so you write streams asterisk duration to multiply the two columns.
+
+# Using mutate to add a new variable (result)
+
+<pre><code class="language-python">(music_top200
+  >> mutate(<mark>ttl_stream_time</mark> = _.streams * _.duration)
+)
+</code></pre>
+
+```{python}
+#| tags: [hide-input]
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+)
+```
+
+Notice that to be informative, we have named the column `ttl_stream_time`, that's what's to the left of the equals sign in our code.
+
+Column names need to be one word like this: you can't use spaces.
+
+Notice that in the results, there's a brand new `ttl_stream_time` column, which is much larger than `streams`.
+
+# Answering a question
+
+```python
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+  >> filter(_.country == "Costa Rica")
+  >> arrange(-_.ttl_stream_time)
+)
+```
+
+Let's put together the three verbs you learned in this chapter to answer a question about our data.
+
+Suppose we wanted to know for a country, like Costa Rica, what songs were listened to longest.
+
+We would do this in three steps: 
+
+* create the column
+* filter for country
+* then sort
+
+**(Click the down arrow for a breakdown)**
+
+## Answering a question
+
+```{python}
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+ 
+ 
+)
+```
+
+We use mutate to create the ttl_stream_time column. 
+
+## Answering a question
+
+```{python}
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+  >> filter(_.country == "Costa Rica")
+ 
+)
+```
+
+Then we'd use filter to restrict our analysis to only Costa Rica. 
+
+## Answering a question
+
+```{python}
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+  >> filter(_.country == "Costa Rica") 
+  >> arrange(-_.ttl_stream_time) 
+)
+```
+
+Then we'd use arrange to sort the data in descending order of our new ttl_stream_time variable.
+
+# Answering a question (result)
+
+```{python}
+(music_top200
+  >> mutate(ttl_stream_time = _.streams * _.duration)
+  >> filter(_.country == "Costa Rica") 
+  >> arrange(-_.ttl_stream_time) 
+)
+```
+
+This gives us the answer we're looking for.
+
+The most streamed track in Costa Rica is still the first in our result.
+
+However, it looks like the track normally in the 23rd position--René by Residente--is third, since it's over 7 minutes long!
+
+# Let's practice!

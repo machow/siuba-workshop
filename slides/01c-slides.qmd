@@ -1,0 +1,146 @@
+---
+title: The arrange verb
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: venv-intro-to-siuba
+    language: python
+    name: venv-intro-to-siuba
+---
+
+{{< include _setup.qmd >}}
+
+# The arrange verb
+
+![](model-arrange.png)
+
+
+:::{.notes}
+In the last video you learned the filter verb, for extracting a subset of your observations based on a condition.
+
+Now you'll learn the arrange verb.
+
+Arrange sorts the observations in a dataset, in ascending or descending order based on one of its variables.
+
+This is useful, for example, when you want to know the most extreme values in a dataset.
+:::
+
+# Sorting with arrange
+
+```{python}
+#| echo: true
+(music_top200
+  >> arrange(_.duration)
+)
+```
+
+:::{.notes}
+Just like filter, you use the arrange verb after the pipe operator.
+
+You would type music, then the pipe operator (two greater than symbols) and then arrange.
+Within those parentheses, you tell it what column you want to arrange by.
+
+The observations are now sorted in ascending order, with the lowest duration songs appearing first.
+
+Look at the second to rightmost column: it starts with 65.631, the smallest value in the dataset, then keeps increasing.
+Looking at the track name column, this track is called Klop Klop, and is the shortest track in the data.
+
+Just like with filter, the music object itself is unchanged: arrange is just giving you a new, sorted dataset.
+:::
+
+# arrange descending
+
+```{python}
+#| echo: true
+(music_top200
+  >> arrange(-_.duration)
+)
+```
+
+:::{.notes}
+arrange also lets you sort in **descending order**.
+To do that, you'd put a **negative sign** next to the variable you're sorting by.
+
+This lets us see that the track with the longest duration is Susamam, which is a hit in at least Turkey. It's almost 15 minutes long!
+
+However, we might be interested in looking at duration within a specific country.
+:::
+
+# arrange and filter
+
+```{python}
+#| echo: true
+(music_top200
+  >> filter(_.country == "United States")
+  >> arrange(-_.duration)
+)
+```
+
+:::{.notes}
+Suppose you wanted to find the longest duration song in the United States.
+
+To do that, you can combine the two verbs you've already learned: filter, and arrange.
+:::
+
+## arrange and filter
+
+```{python}
+#| echo: true
+(music_top200
+  >> filter(_.country == "United States")
+
+)
+```
+
+:::{.notes}
+**Longest duration song in the United States.**
+
+You start with the music dataset, then a pipe to give the dataset to filter.
+Then you specify that you want to filter for country equals equals United States.
+
+Then you use another pipe step.
+:::
+
+## arrange and filter
+
+```{python}
+#| echo: true
+(music_top200
+  >> filter(_.country == "United States")
+  >> arrange(-_.duration)
+)
+```
+
+:::{.notes}
+**Longest duration song in the United States.**
+
+The added pipe line takes the result of the filter, and gives it to arrange.
+You specify that you want to sort in descending order of duration.
+:::
+
+# arrange and filter
+
+```{python}
+#| echo: true
+(music_top200
+  >> filter(_.country == "United States")
+  >> arrange(-_.duration)
+)
+```
+
+:::{.notes}
+The result shows that the longest duration track in the United States is After Hours by The Weeknd.
+
+We can explore many such questions with various combinations of dplyr verbs.
+
+Over the course of these lessons, you'll
+learn to pipe together
+multiple simple operations to create a rich and informative data analysis.
+:::
+
+# Let's practice!

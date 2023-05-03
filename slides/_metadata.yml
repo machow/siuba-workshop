@@ -1,0 +1,9 @@
+format:
+  revealjs:
+    slide-number: true
+    controls: true
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    width: 650
+    height: 600
+    theme: _styles.scss
