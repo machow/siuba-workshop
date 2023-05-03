@@ -1,0 +1,113 @@
+---
+title: Mutate
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: wrangle
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+### Exercise 0:
+
+Delete the `#` symbol on the line `# music_top200`. This symbol is called a comment, and causes everything to the right of it to be ignored.
+
+```{python}
+# I am a helpful not. I am not code!
+
+# music_top200
+```
+
+### Exercise 1:
+
+Currently, the `duration` is calculated in seconds.
+
+* Delete (uncomment) the `#` symbol in the code.
+* Complete the code to convert duration to milliseconds.
+
+<details>
+  <summary>hint</summary>
+  
+  > Delete the # symbol. This is called a comment. When it is the first non-blank on a line, it stops that line from being run.
+  
+  > 1 second is 1000 milliseconds. So you would multiply the duration by 1000.
+</details>
+
+```{python}
+(music_top200
+  # >> mutate(___ = ___)
+)
+```
+
+### Exercise 2:
+
+Uncomment the mutate in the pipe below. Can you fix the two errors in it?
+
+It should return data with a new column on the right, that divides position by 200.
+
+```{python}
+(music_top200
+  # >> mutate(new position = position / 200)
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> mutate(new_position = _.position / 200)
+)
+```
+
+### Exercise 3: 
+
+The mutate below uses code from a future chapter to calculate how many letters are in each artist's name.
+
+Which artist with the shortest name has the most streams?
+
+<details>
+  <summary>hint</summary>
+  
+  > You'll need to use an arrange in the pipe with 2 arguments.
+</details>
+
+```{python}
+(music_top200
+  >> mutate(artist_length = _.artist.str.len())
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> mutate(artist_length = _.artist.str.len())
+  >> arrange(_.artist_length, -_.streams)
+)
+```
+
+
+<prompt-expandable header="">
+
+<q-multiple-choice>
+  <q-opt text="V, for their track in Indonesia"><span>That's right!</span></q-opt>
+  <q-opt text="V, for their track in Hong Kong"><span>That's the right artist, but did you sort by most streams first?</span></q-opt>
+  <q-opt text="F, for their track in Finland"><span>Incorrect. Did you sort by most streams first?</span></q-opt>
+    <q-opt text="F, for their track in Hong Kong"><span>Incorrect. Did you sort by most streams first?</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
