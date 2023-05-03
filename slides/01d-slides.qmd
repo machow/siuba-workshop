@@ -18,6 +18,7 @@ jupyter:
 ![](model-mutate.png)
 
 
+:::{.notes}
 You've already learned two verbs for manipulating data: filter for
 extracting a subset of the observations, and arrange for sorting them.
 
@@ -25,6 +26,7 @@ Suppose you want to change one of the variables in your dataset, based on the ot
 Or suppose you want to add a new variable.
 
 For that, you would use the mutate verb.
+:::
 
 # Using mutate to change a variable
 
@@ -34,6 +36,7 @@ For that, you would use the mutate verb.
 )
 ```
 
+:::{.notes}
 First you'll learn how to change an existing variable.
 
 You use mutate like you would filter or arrange, after a pipe operator.
@@ -43,6 +46,7 @@ what's being calculated, and what's on the left is what's being replaced.
 Here, you're calculating streams slash one thousand.
 
 **(Click the down arrow for a breakdown)**
+:::
 
 ## Using mutate to change a variable
 
@@ -51,7 +55,9 @@ Here, you're calculating streams slash one thousand.
 )
 </code></pre>
 
+:::{.notes}
 The slash in Python performs division, so "streams divided by one thousand".
+:::
 
 ## Using mutate to change a variable
 
@@ -60,7 +66,9 @@ The slash in Python performs division, so "streams divided by one thousand".
 )
 </code></pre>
 
+:::{.notes}
 On the left, you're saying you want to replace the existing streams column, by writing streams equals.
+:::
 
 # Using mutate to change a variable (result)
 
@@ -70,6 +78,7 @@ On the left, you're saying you want to replace the existing streams column, by w
 )
 ```
 
+:::{.notes}
 The result is the same table, but with streams replaced with a new value, one that's much smaller than it was before.
 
 This is how you manipulate existing variables in the table.
@@ -77,6 +86,7 @@ That's often necessary during data processing and cleaning.
 
 Just like filter and arrange, you're not altering the original music_top200
 data, you're just changing the value in this new data frame that's being returned.
+:::
 
 # Using mutate to add a new variable
 
@@ -86,6 +96,7 @@ data, you're just changing the value in this new data frame that's being returne
 )
 ```
 
+:::{.notes}
 Alternatively, you may want to add a new variable.
 
 For instance, suppose you want to know the total seconds people have listened to a track.
@@ -98,6 +109,7 @@ You would use mutate in almost the same way.
 You pipe your music data to the mutate verb.
 
 The asterisk in Python represents multiplication, so you write streams asterisk duration to multiply the two columns.
+:::
 
 # Using mutate to add a new variable (result)
 
@@ -113,11 +125,13 @@ The asterisk in Python represents multiplication, so you write streams asterisk 
 )
 ```
 
+:::{.notes}
 Notice that to be informative, we have named the column `ttl_stream_time`, that's what's to the left of the equals sign in our code.
 
 Column names need to be one word like this: you can't use spaces.
 
 Notice that in the results, there's a brand new `ttl_stream_time` column, which is much larger than `streams`.
+:::
 
 # Answering a question
 
@@ -129,6 +143,7 @@ Notice that in the results, there's a brand new `ttl_stream_time` column, which 
 )
 ```
 
+:::{.notes}
 Let's put together the three verbs you learned in this chapter to answer a question about our data.
 
 Suppose we wanted to know for a country, like Costa Rica, what songs were listened to longest.
@@ -140,6 +155,7 @@ We would do this in three steps:
 * then sort
 
 **(Click the down arrow for a breakdown)**
+:::
 
 ## Answering a question
 
@@ -151,7 +167,9 @@ We would do this in three steps:
 )
 ```
 
+:::{.notes}
 We use mutate to create the ttl_stream_time column. 
+:::
 
 ## Answering a question
 
@@ -163,7 +181,9 @@ We use mutate to create the ttl_stream_time column.
 )
 ```
 
+:::{.notes}
 Then we'd use filter to restrict our analysis to only Costa Rica. 
+:::
 
 ## Answering a question
 
@@ -175,7 +195,9 @@ Then we'd use filter to restrict our analysis to only Costa Rica.
 )
 ```
 
+:::{.notes}
 Then we'd use arrange to sort the data in descending order of our new ttl_stream_time variable.
+:::
 
 # Answering a question (result)
 
@@ -187,10 +209,12 @@ Then we'd use arrange to sort the data in descending order of our new ttl_stream
 )
 ```
 
+:::{.notes}
 This gives us the answer we're looking for.
 
 The most streamed track in Costa Rica is still the first in our result.
 
 However, it looks like the track normally in the 23rd position--René by Residente--is third, since it's over 7 minutes long!
+:::
 
 # Let's practice!
