@@ -1,0 +1,141 @@
+---
+title: Aesthetics
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: visualize
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: venv-intro-to-siuba
+    language: python
+    name: venv-intro-to-siuba
+---
+
+```{python}
+#| name: setup
+#| tags: [input-details, setup]
+# TODO: explain how to run this, and that they only need the gist (loads tools)
+
+# wranglign ---------
+import pandas as pd
+from siuba import *
+
+# plotting ----------
+from plotnine import *
+
+theme_set(theme_classic(base_family = "Noto Sans CJK JP"))
+
+# data --------------
+from music_top200 import music_top200, track_features
+
+# student support ----------
+from siuba import pipe
+from IPython.display import HTML, display
+from siututor import Blank
+___ = Blank()
+
+# DataFrame display --------
+pd.set_option("display.max_rows", 6)
+
+from IPython import get_ipython
+# special ipython function to get the html formatter
+html_formatter = get_ipython().display_formatter.formatters['text/html']
+
+# here, we avoid the default df._repr_html_ method, since it inlines css
+# (style tags make vue angry)
+html_formatter.for_type(
+    pd.DataFrame,
+    lambda df: df.to_html(max_rows = pd.get_option("display.max_rows"), show_dimensions = True)
+)
+
+# remove the <ggplot: (528...)> printout
+html_formatter.for_type(ggplot, lambda g: "")
+```
+
+import slides from '../slides/02c-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+The plot below shows all top 200 hundred hits for Eric Chou across countries. 
+Use the code cell below to recreate it.
+
+(Note: running the code won't delete the plot!).
+
+```{python}
+# your code here
+
+
+
+#
+```
+
+```{python}
+#| tags: [hide-input]
+(music_top200
+  >> filter(_.artist == "Eric Chou")
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+   + labs(title = "Top 200 hits for Eric Chou across countries")
+)
+```
+
+### Exercise 2:
+
+Use plots of the data for the artists Snelle, Bazzi, and Davyi, to answer the questions below.
+
+You may need to write and run code multiple times, and produce multiple plots.
+
+```{python}
+(
+    
+)
+```
+
+```{python}
+#| tags: [solution-code]
+p1 = (music_top200
+  >> filter(_.artist.isin(["Snelle", "Bazzi", "Dayvi"]))
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+   + facet_wrap("~artist")
+)
+
+p2 = (music_top200
+  >> filter(_.artist.isin(["Snelle", "Bazzi", "Dayvi"]))
+  >> ggplot(aes("position", "streams", color = "continent"))
+   + geom_point()
+   + facet_wrap("~artist")
+)
+
+print(p1, p2)
+```
+
+
+<prompt-expandable header="Which of these artists have hit tracks in the most continents?">
+
+<q-multiple-choice>
+  <q-opt text="Snelle"><span>Incorrect. Did you try using the color aesthetic?</span></q-opt>
+  <q-opt text="Bazzi"><span>That's right. Bazzi has hits on every continent.</span></q-opt>
+  <q-opt text="Dayvi"><span>Incorrect. Did you try using the color aesthetic?</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
+
+
+<prompt-expandable header="How many *countries* does Dayvi have hit tracks in?">
+
+<q-multiple-choice>
+  <q-opt text="1"><span>Incorrect.</span></q-opt>
+  <q-opt text="2"><span>That's right.</span></q-opt>
+  <q-opt text="3"><span>Incorrect.</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>

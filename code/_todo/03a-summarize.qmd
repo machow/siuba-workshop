@@ -1,0 +1,174 @@
+---
+title: Summarize
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: summarize
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: venv-intro-to-siuba
+    language: python
+    name: venv-intro-to-siuba
+---
+
+```{python}
+#| name: setup
+#| tags: [input-details, setup]
+# TODO: explain how to run this, and that they only need the gist (loads tools)
+
+# wranglign ---------
+import pandas as pd
+from siuba import *
+
+# plotting ----------
+from plotnine import *
+
+theme_set(theme_classic(base_family = "Noto Sans CJK JP"))
+
+# data --------------
+from music_top200 import music_top200, track_features
+
+# student support ----------
+from siuba import pipe
+from IPython.display import HTML, display
+from siututor import Blank
+___ = Blank()
+
+# DataFrame display --------
+pd.set_option("display.max_rows", 6)
+
+from IPython import get_ipython
+# special ipython function to get the html formatter
+html_formatter = get_ipython().display_formatter.formatters['text/html']
+
+# here, we avoid the default df._repr_html_ method, since it inlines css
+# (style tags make vue angry)
+html_formatter.for_type(
+    pd.DataFrame,
+    lambda df: df.to_html(max_rows = pd.get_option("display.max_rows"), show_dimensions = True)
+)
+
+# remove the <ggplot: (528...)> printout
+html_formatter.for_type(ggplot, lambda g: "")
+```
+
+
+import slides from '../slides/03a-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+### Exercise 1:
+
+The code below calculates the average duration.
+
+* Uncomment the summarize verb.
+* Change it to calculate median duration.
+* Make sure to change the resulting column name to indicate its a median.
+
+```{python}
+(music_top200
+  #>> summarize(avg_duration = _.duration.mean())
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(music_top200
+  >> summarize(median_duration = _.duration.median(), ttl_streams = _.streams.sum())
+)
+```
+
+<prompt-expandable header="What is the median duration?">
+<q-multiple-choice>
+  <q-opt text="205.990"><span></span></q-opt>
+  <q-opt text="65.631"><span></span></q-opt>
+  <q-opt text="201.084"><span>That's right!</span></q-opt>
+  <q-opt text="851.871"><span></span></q-opt>  
+</q-multiple-choice>
+</prompt-expandable>
+
+<prompt-expandable header="Add a second argument to summarize, which calculates the sum of streams. How large is it?">
+<q-multiple-choice>
+  <q-opt text="30,182,252"><span></span></q-opt>
+  <q-opt text="301,822,525"><span>That's right!</span></q-opt>  
+  <q-opt text="451,822,525"><span></span></q-opt>
+  <q-opt text="45,182,252"><span></span></q-opt>  
+</q-multiple-choice>
+</prompt-expandable>
+
+### Exercise 2:
+
+Use verbs you learned in chapter 1 to do the following:
+
+* find the track with the lowest duration
+* subset the data to keep only the row for that track
+
+(Note, you may need to run code multiple times)
+
+```{python}
+(music_top200
+
+)
+```
+
+Now, use summarize to calculate the min duration, and the max duration directly.
+
+```{python}
+(music_top200
+
+)
+```
+
+<prompt-expandable header="Why would you use summarize like this, rather than the arrange and filter approach?">
+
+<q-multiple-choice>
+  <q-opt text="The min and max values might be in different observations (rows)."><span>That's right. Filter keeps specific rows, but summarize can collect values from across rows.</span></q-opt>
+  <q-opt text="It keeps more of the original data."><span>Try again. Filter keeps all the variables (columns), while summarize will remove most of them.</span></q-opt>
+  <q-opt text="The arrange and filter approach can do anything summarize can."><span>Try again.</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
+
+### Exercise 3:
+
+The examples below show what happens verbs like filter and mutate use methods like `.mean()`.
+
+```{python}
+# create column for average streams
+(music_top200
+  >> mutate(avg_streams = _.streams.mean())
+)
+```
+
+```{python}
+# keep observations where streams are above average
+(music_top200
+  >> filter(_.streams < _.streams.mean())
+)
+```
+
+Based on the examples above, can you use only the filter verb to get the most streamed song in all the data?
+
+```{python}
+# modify the filter verb below
+
+(music_top200
+  >> filter()
+)
+```
+
+```{python}
+(music_top200
+  >> filter(_.streams == _.streams.max())
+)
+```
+
+<details><summary>What is the most streamed song?</summary>The Box by Roddy Ricch</details>
