@@ -8,9 +8,9 @@ jupyter:
       format_version: '1.0'
       jupytext_version: 1.14.4
   kernelspec:
-    display_name: venv-intro-to-siuba
+    display_name: Python 3 (ipykernel)
     language: python
-    name: venv-intro-to-siuba
+    name: python3
 ---
 
 {{< include _setup.qmd >}}
