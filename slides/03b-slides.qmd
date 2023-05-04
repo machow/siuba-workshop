@@ -1,0 +1,157 @@
+---
+title: The group_by verb
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+{{< include _setup.qmd >}}
+
+:::{.notes}
+In the last lesson, you used the summarize verb to calculate an average either,
+
+* across all countries (the entire dataset)
+* within a particular country (filtered data)
+
+In this lesson you'll learn the group_by verb, which opens up a new option for calculating an average:
+
+* within each country
+:::
+
+
+# The group_by verb
+
+![](./model_group_by.png)
+
+:::{.notes}
+You use group_by to define groupings of data (blue and green chunks in diagram).
+
+Then, you would follow it with summarize to convert those groups to a single value (like a mean).
+:::
+
+
+# The summarize verb
+
+```{python}
+(music_top200
+  >> filter(_.country == "Japan")
+  >> summarize(avg_duration = _.duration.mean()))
+```
+
+:::{.notes}
+For example, here you're finding the average track duration in Japan.
+
+What if we weren't interested just in the average duration for Japan, but for each country in the dataset?
+
+You could rerun this code and change the country each time, but that's very tedious.
+:::
+
+
+# Summarizing by country
+
+```{python}
+(music_top200
+  >> group_by(_.country)
+  >> summarize(avg_duration = _.duration.mean())
+)
+```
+
+:::{.notes}
+Instead, you can use the group_by verb, which tells siuba to summarize within groups instead of summarizing the entire dataset.
+Notice that this replaces the filter country equals Japan with group_by country.
+
+`group_by(_.country)` tells the summarize step that it should perform the summary within
+each country: within Argentina, then within Australia, and so on through Viet Nam, then combine the results.
+
+Instead of getting one row overall, you now get **one row for each country**.
+There's now a year variable along with the new avg_duration variable.
+:::
+
+
+# Summarizing by continent and position
+
+```{python}
+(music_top200
+  >> group_by(_.continent, _.position)
+  >> summarize(
+      min_streams = _.streams.min(),
+      max_streams = _.streams.max()
+  )
+)
+```
+
+:::{.notes}
+You can also group by multiple variables.
+
+Suppose you're interested calculating
+min and max streams
+within each continent, and each position.
+
+Now the output has one row for each combination of a continent and position.
+
+**(Click down to see what the steps leading to this code might look like)**
+:::
+
+
+## Summarizing by continent and position
+
+```{python}
+(music_top200
+
+  >> summarize(
+      min_streams = _.streams.min(),
+      max_streams = _.streams.max()
+  )
+)
+```
+
+:::{.notes}
+You might start by summarizing min and max streams across all the data.
+:::
+
+
+## Summarizing by continent and position
+
+```{python}
+(music_top200
+  >> filter(_.continent == "Oceania", _.position == 1)
+  >> summarize(
+      min_streams = _.streams.min(),
+      max_streams = _.streams.max()
+  )
+)
+```
+
+:::{.notes}
+Then, you might add a filter, so your summarize is over one specific grouping (position 1 tracks in Oceania).
+:::
+
+
+## Summarizing by continent and position
+
+```{python}
+(music_top200
+  >> group_by(_.continent, _.position)
+  >> summarize(
+      min_streams = _.streams.min(),
+      max_streams = _.streams.max()
+  )
+)
+```
+
+:::{.notes}
+Finally, you might replace the filter with a group_by.
+
+Note that you might save this result as a variable and use it in a new pipe or visualization. For example, the new pipe might filter to keep where position is 1, so you can inspect min and max streams for the top tracks across continents.
+:::
+ 
+
+# Let's practice!

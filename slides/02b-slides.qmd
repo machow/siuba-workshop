@@ -1,0 +1,120 @@
+---
+title: Using plotnine Geoms
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+
+{{< include _setup.qmd >}}
+
+
+```{python}
+#| tags: [hide-input]
+billie = filter(track_features, _.artist == "Billie Eilish")
+```
+
+```{python}
+(billie
+ >> ggplot(aes("energy", "valence"))
+  + geom_point()
+)
+```
+
+:::{.notes}
+In the previous lesson,
+you created this scatter plot
+comparing the energy of each song to its valence.
+
+This plot communicates some interesting information: we can see
+that higher income countries tend to have higher life expectancy.
+
+One problem with this plot, however, is that it's impossible to tell which song is which.
+Adding labels to the point will let us identify songs in the plot.
+:::
+
+# Using geom_label
+
+```{python}
+(billie
+ >> ggplot(aes("energy", "valence", label = "track_name"))
+  + geom_label()
+)
+```
+
+:::{.notes}
+The first option for plotting text is using `geom_label()`. This plots the text with a filled in box around it.
+
+Unlike scanning a DataFrame of results, it's easy to see pick out songs across a range of valence and energy.
+
+For example, relative to other songs:
+
+* "i love you" is low valence and low energy 
+* "bad guy" is high valence and high energy
+* "bellyache" is extremely high energe and a moderate amount of valence
+:::
+
+
+# Using geom_text
+
+```{python}
+(billie
+ >> ggplot(aes("energy", "valence", label = "track_name"))
+  + geom_text()
+)
+```
+
+:::{.notes}
+A second option for plotting text is with `geom_text()`. This plots text by itself, without a background box.
+
+Notice the words in front don't cover other words as much, but it can also be harder to read them.
+:::
+
+# Combining geoms
+
+```{python}
+(billie
+ >> ggplot(aes("energy", "valence", label = "track_name"))
+  + geom_text(nudge_y = .1)
+  + geom_point()
+)
+```
+
+:::{.notes}
+When you plot multiple geoms--like in this plot--ggplot goes line-by-line, from top to bottom.
+
+For example, in the code here, it first puts down the words from `geom_text()`, then the points from `geom_point()`.
+
+Notice also that `geom_text()` has an option passed to it, `nudge_y = ,1`.
+:::
+
+# More on geom options
+
+![](./plotnine-geom-doc.png)
+
+:::{.notes}
+In general, there are many arguments you can pass to geoms, and different geoms can take different arguments.
+
+The easiest way to understand what arguments geoms can take, and what they do, is to look at the plotnine documentation website.
+
+Here are two useful parts of the docs:
+
+* [list of available geoms](https://plotnine.readthedocs.io/en/stable/api.html)
+* [help document on geom_text](https://plotnine.readthedocs.io/en/stable/generated/plotnine.geoms.geom_text.html#plotnine.geoms.geom_text)
+
+:::
+
+# Let's practice!
+
+:::{.notes}
+In the exercises, you'll practice creating other scatter plots to compare variables across
+countries, and in the rest of this chapter you'll learn more ways to communicate information in a graph.
+:::

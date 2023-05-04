@@ -1,0 +1,95 @@
+---
+title: Faceting
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+{{< include _setup.qmd >}}
+
+
+* filter artist, get characteristics
+* try different combinations of characteristics--which ones seem most related?
+* diagnose error (unquoted ggplot)
+* diagnose error (verb without _)
+* plot with aesthetics
+* plot text instead
+* labs?
+
+
+:::{.notes}
+You've learned to use color in your scatterplots.
+
+Now you'll learn another way to explore your data.
+plotnine lets you divide your plot into subplots to get one smaller graph for each level of a variable.
+
+This is called faceting, and it's another powerful way to communicate relationships within your data.
+:::
+
+# Faceting
+
+```{python}
+asia_top200 = (
+  music_top200
+  >> filter(_.continent == "Asia")
+)
+asia_top200
+```
+
+:::{.notes}
+For this example, we'll use Spotify top 200 track data for countries in Asia.
+:::
+
+# Faceting
+
+```{python}
+(asia_top200
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+)
+```
+
+:::{.notes}
+This plot shows the number of streams for each top 200 track in Asian countries.
+
+There are so many countries that the plot hits two issues:
+
+1. it has to use many different colors.
+2. many points are on top of each other.
+
+A facetted plot could help here, by giving each country its own small panel.
+:::
+
+# Faceting
+
+```{python}
+(asia_top200
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+   + facet_wrap('~country')
+)
+```
+
+:::{.notes}
+You facet a plot by adding another option, with a +, to the end of your code, after geom_point.
+
+You add facet underscore wrap, then "tilde country" within the parentheses.
+
+In R, the tilde symbol typically means "by", meaning that we're splitting the
+plot by country, and you can usually find it on the upper left of your keyboard.
+This tells ggplot2 to divide the data into subplots based on the country variable.
+:::
+
+# Let's practice!
+
+:::{.notes}
+Scroll down to get started with practice!
+:::
