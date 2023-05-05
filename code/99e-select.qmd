@@ -1,6 +1,8 @@
 ---
 title: Select
 output: html_document
+execute:
+  eval: false
 editor_options:
   chunk_output_type: console
 chunk: wrangle

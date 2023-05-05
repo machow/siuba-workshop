@@ -19,6 +19,12 @@ jupyter:
     name: python3
 ---
 
+```{=html}
+<iframe class="slide-deck" src="../slides/01b-slides.html"></iframe>
+```
+
+Click [here](../slides/01b-slides.qmd) to open the slides full screen.
+
 ```{python}
 from setup import *
 from setup import ___, _
