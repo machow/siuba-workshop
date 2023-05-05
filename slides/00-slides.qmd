@@ -1,7 +1,14 @@
 ---
 title: Introduction to siuba
 format:
-  revealjs
+  revealjs:
+    slide-number: true
+    controls: true
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    width: 650
+    height: 600
+    theme: _styles.scss
 jupyter:
   jupytext:
     text_representation:
@@ -10,9 +17,9 @@ jupyter:
       format_version: '1.0'
       jupytext_version: 1.14.4
   kernelspec:
-    display_name: venv-intro-to-siuba
+    display_name: Python 3 (ipykernel)
     language: python
-    name: venv-intro-to-siuba
+    name: python3
 ---
 
 ::: {.notes}
@@ -24,28 +31,9 @@ The course is designed for people who have never programmed before,
 and anyone interested in siuba!
 :::
 
+{{< include _setup.qmd >}}
 
 # Data Analysis
-
-```{python}
-#| include: false
-#| slideshow: {slide_type: skip}
-#| tags: [hide-cell]
-import pandas as pd
-from siuba import arrange, select, mutate, filter, _
-from plotnine import ggplot, geom_point, coord_flip, aes, labs, geom_text
-
-# data --------------
-from music_top200 import music_top200, track_features
-
-pd.set_option("display.max_rows", 6)
-
-# remove ggplot printout
-from IPython import get_ipython
-html_formatter = get_ipython().display_formatter.formatters['text/html']
-html_formatter.for_type(ggplot, lambda g: "")
-```
-
 
 
 ![](model-workflow.png)
@@ -72,6 +60,7 @@ You can check it out on <a href="https://spotifycharts.com/regional/global/weekl
 # Meet the data: Spotify top 200
 
 ```{python}
+#| echo: true
 music_top200
 ```
 
@@ -81,9 +70,11 @@ The data we'll use is held in a **DataFrame**. A DataFrame is a big table of dat
 Notice that in the bottom-left of the table, it shows the number of rows and columns. This data has 12,000 rows and 6 columns.
 :::
 
-# Meet the data: Spotify top 200
+## Meet the data: Spotify top 200
 
-```python
+```{python}
+#| eval: false
+#| echo: true 
 music_top200
 ```
 
@@ -141,6 +132,12 @@ Their measures for a song include:
 .col-00 img {
     max-height: 50%;
 }
+
+.col-00 p {
+  /* the markdown processor puts the img tags inside a <p> */
+  display: block;
+  height: 100%;
+}
 </style>
 
 <div class="container-00" height="450px">
@@ -148,17 +145,16 @@ Their measures for a song include:
 <div class="col-00" width="50%">
 <img src="plot-line.png">
 <img src="plot-hist.png">
-
 </div>
 
 <div class="col-00" width="50%">
 <img src="plot-point.png">
 <img src="plot-box.png">
-
 </div>
 
 </div>
 </div>
+
     
 
 ::: {.notes}
@@ -170,6 +166,7 @@ The course is interactive: between short lessons you'll complete interactive exe
 # How code is structured
 
 ```{python}
+#| echo: true
 (track_features
   >> filter(_.artist == "The Weeknd")
   >> ggplot(aes("energy", "valence"))
@@ -185,7 +182,7 @@ The top line of the code is the data. Every additional line is an action applied
 **Click down to see what each line of code does.**
 :::
 
-# How code is structured
+## How code is structured
 
 ```{python}
 (track_features
@@ -201,7 +198,7 @@ The first action is filtering the data, to keep only observations (rows) where `
 Don't worry to much about the details for now. Filter is the first thing you'll learn, once you start the first chapter!
 :::
 
-# How code is structured
+## How code is structured
 
 ```{python}
 (track_features
@@ -215,7 +212,7 @@ Don't worry to much about the details for now. Filter is the first thing you'll 
 The next action, `ggplot(...)`, gets ready to make a plot, based on the data in the previous step.
 :::
 
-# How code is structured
+## How code is structured
 
 ```{python}
 (track_features

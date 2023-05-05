@@ -7,7 +7,21 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - sidebar:slides
+      - sidebar:code
+
+  sidebar:
+    - id: slides
+      title: Slides
+      style: floating
+      align: left
+      contents: "slides/*"
+    - id: code
+      title: Code
+      style: floating
+      align: left
+      contents: "code/*"
+
 
 format:
   html:

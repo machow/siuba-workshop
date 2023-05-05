@@ -1,0 +1,167 @@
+---
+title: The filter verb
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+{{< include _setup.qmd >}}
+
+
+::: {.notes}
+Now that you've seen some code in action on the music data, we'll focus on writing your own code.
+
+In this chapter, you'll learn about the "verbs" in the siuba package. The first verb you'll use is filter.
+:::
+
+# The filter verb
+
+![](model-filter.png)
+
+::: {.notes}
+You use filter when you want to keep only a subset of your observations, based on a particular condition.
+
+Filtering data is a common first step in an analysis.
+:::
+
+# Filter for top songs
+
+```python
+(music_top200
+  >> filter(_.position == 1)
+)
+```
+
+::: {.notes}
+Every time you apply a verb, you'll use a pipe.
+A pipe is a block of commands, surrounded by parentheses.
+
+For example, let's say we want to keep only songs in the first position on the music charts.
+This is done by using the pipe shown on the slide.
+
+**Click the down arrow** on the slideshow to see broken into 3 steps:
+
+1. start the block
+2. write the pipe operator and verb name
+3. write the operation
+:::
+
+## Filter step 1: start the block
+
+```python
+(music_top200
+
+)
+```
+
+::: {.notes}
+A block is written with opening and closing parentheses, and the name of your data in the middle.
+
+Press enter twice after the name of your data, to make an empty line.
+:::
+
+## Filter step 2: pipe operator and verb name
+
+```python
+(music_top200
+  >> filter()
+)
+```
+
+::: {.notes}
+Next, write a pipe operator using two greater than signs.
+It says "take whatever is before the pipe operator, and feed it into the next step."
+
+In this case, the next step will be filter.
+:::
+
+## Filter step 3: write the operation
+
+```python
+(music_top200
+  >> filter(_.position == 1)
+)
+```
+
+::: {.notes}
+Finally, we can complete our first verb.
+
+We have all 200 hit songs on the charts, but just want to get the first.
+
+The "position equals equals 1" is the condition we are using to filter observations. The "equals equals" may be surprising: it's what we call a "logical
+equals"- an operation to compare two values: each position, and the number 1.
+
+A single equals here would mean something different in python, which you'll see later.
+
+Let's see what this code outputs.
+:::
+
+# Filter for top songs
+
+```{python}
+(music_top200
+  >> filter(_.position == 1)
+)
+```
+
+::: {.notes}
+Notice that now, we have only 62 rows: that's how many countries are in the dataset.
+
+It's important to note that you're not removing any rows from the original `music` data.
+You can still use the `music` object for other analyses, and it won't be any different than it was before.
+
+Instead, filter is returning a new dataset, one with fewer rows, that then gets printed to the screen.
+:::
+
+# Filter for country
+
+```{python}
+(music_top200
+  >> filter(_.country == "United States")
+)
+```
+
+::: {.notes}
+You could choose another condition to filter on, besides the position. For example, suppose we wanted to get only the observations from the United States.
+
+We would write this as "filter country equals equals quote United
+States endquote", resulting in only the 200 observations from that country.
+
+The quotes around United States are important: otherwise Python won't understand that the
+words "Hong" and "Kong" are the content of a text variable, as opposed to variable names.
+You didn't need quotes around a number like 1, but you do around text.
+:::
+
+# Filter with two variables
+
+```{python}
+(music_top200
+  >> filter(_.position == 1, _.country == "United States")
+)
+```
+
+::: {.notes}
+We can specify multiple conditions in the filter.
+
+Each of the conditions is separated by a comma: here we are saying we want only
+the one observation for position 1, comma, where the country is the United States.
+
+Each of these equals equals expressions is called an argument.
+This kind of double filter is useful for extracting a single observation you're interested in.
+
+You'll be able to practice this in the exercises.
+:::
+
+# Let's practice!
+
+::: {.notes}
+Scroll down to investigate the music data with filter.
+:::

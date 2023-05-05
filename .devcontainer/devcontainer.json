@@ -1,5 +1,10 @@
 {
     "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+      "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
+          "installChromium": true
+      }
+  },
     "hostRequirements": {
       "cpus": 4
     },

@@ -1,0 +1,140 @@
+---
+title: Group by
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: summarize
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+
+import slides from '../slides/03b-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+### Exercise 1:
+
+Modify the code below so it calculates max popularity and average danceability **for each artist**.
+
+```{python}
+artists = (track_features
+  >> summarize(
+      max_popularity = _.popularity.max(),
+      avg_danceability = _.danceability.mean()
+  )
+)
+artists
+```
+
+Make a scatterplot of the data.
+
+```{python}
+#| tags: [empty-code]
+
+
+
+
+```
+
+```{python}
+#| tags: [solution-code]
+artists = (track_features
+  >> group_by(_.artist)
+  >> summarize(
+      max_popularity = _.popularity.max(),
+      avg_danceability = _.danceability.mean()
+  )
+)
+
+print(artists)
+
+(artists
+  >> ggplot(aes("max_popularity", "avg_danceability"))
+   + geom_point()
+)
+```
+
+In the plot above, what strange thing is going on with the distribution of max popularity?
+
+<details>
+<summary>possible answer</summary>
+
+There are many artists with a max popularity of 0! 
+  
+</details>    
+
+### Exercise 2:
+
+In the last exercise of the facets chapter, you examined track features for three artists.
+
+```{python}
+# This code keeps the 3 artists listed ----
+
+artists_to_keep = ["Billie Eilish", "ITZY", "Roddy Ricch"]
+
+some_artists = (
+  track_features
+  >> filter(_.artist.isin(artists_to_keep))
+)
+
+#uncomment line below to see data
+#some_artists
+```
+
+We used a plot and intuition to judge who tended to have highest energy and valence tracks.
+
+```{python}
+# This code plots the data ----
+(some_artists
+  >> ggplot(aes("energy", "valence", color = "artist"))
+   + geom_point()
+   + facet_wrap("~artist", nrow = 1)
+   + labs(title = "Song features across 3 artists")
+)
+```
+
+Now you should be able to answer the question more directly!
+
+**Use a grouped summarize to calculate the mean energy and valence for each artist**.
+
+```{python}
+#| tags: [empty-code]
+# summarizing mean energy and valence for each artist
+
+
+
+```
+
+```{python}
+#| tags: [solution-code]
+# This code plots the data ----
+(some_artists
+  >> group_by(_.artist)
+  >> summarize(avg_energy = _.energy.mean(), avg_valence = _.valence.mean())
+)
+```
+
+Q: In this data, which artist has the lowest average energy, and what is its value?
+
+<details><summary>answer</summary>Billie Eilish, 0.321004</details>
+
+Q: What about for lowest average valence?
+
+<details><summary>answer</summary>Billie Eilish, 0.266948</details>

@@ -1,0 +1,83 @@
+---
+title: Facets
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: visualize
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+
+import slides from '../slides/02d-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+### Exercise 1: 
+
+**TODO**
+
+### Exercise 2:
+
+Below is the start of plotnine's documentation for `facet_wrap`. 
+
+
+<img src="../assets/facet_wrap_docs.png" style="width: 100%;">
+
+Notice that the Parameters section lists `ncol` and `nrow` options. These determine how many columns or rows to use. For example, the plot below has `nrow = 1`.
+
+Try out the plot as is, and with the `nrow` argument changed to `ncol = 1`.
+Then, answer the questions below.
+
+```{python}
+# This code keeps the 3 artists listed ----
+artists_to_keep = ["Billie Eilish", "ITZY", "Roddy Ricch"]
+
+some_artists = (
+  track_features
+  >> filter(_.artist.isin(artists_to_keep))
+)
+
+# This code plots the data ----
+(some_artists
+  >> ggplot(aes("energy", "valence", color = "artist"))
+   + geom_point()
+   + facet_wrap("~artist", nrow = 1)
+   + labs(title = "Song features across 3 artists")
+)
+```
+
+<prompt-expandable header="Which of the three artists tends to have the lowest valence?">
+
+<q-multiple-choice>
+  <q-opt text="Billie Eilish"><span>Correct! We'll discuss how to measure the idea of "tends to have" in the next chapter.</span></q-opt>
+  <q-opt text="ITZY"><span>That's not right. This artist tends to have the highest valence.</span></q-opt>
+  <q-opt text="Roddy Ricch"><span>That's not right. Look for the cluster of points toward the bottom of the plot.</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
+
+Which value seems easier to compare across facets, when ncol is set to 1?
+
+<details>
+<summary>answer</summary>
+    
+This is subjective, but I would say energy is easier to compare, since there is only one x-axis for across all plots. (For example, there is a only one spot on the x-axis where energy is .25).
+    
+</details>

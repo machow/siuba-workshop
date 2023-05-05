@@ -1,0 +1,188 @@
+---
+title: Visualizing summarized data
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+{{< include _setup.qmd >}}
+
+:::{.notes}
+In this chapter you learned to use the group by and summarize verbs to summarize the music_top200 data
+by year, by continent, or by both.
+
+Now you'll learn how to turn those summaries into informative
+visualizations, by returning to the plotnine package from Chapter 2.
+:::
+
+
+# When visualizing raw data doesn't work
+
+```{python}
+(music_top200
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+)
+```
+
+:::{.notes}
+Suppose we want to look at how many streams countries have.
+We could make a scatterplot showing each track in each country, like in the plot on the slide.
+
+However, there are so many countries that it is hard to read, and half the plot is the legend that shows what color each country is.
+:::
+
+
+# Calculating min and max streams
+
+```{python}
+by_position = (
+  music_top200
+  >> group_by(_.position)
+  >> summarize(max_streams = _.streams.max(),
+               min_streams = _.streams.min())
+)
+by_position
+```
+
+:::{.notes}
+Rather than plotting the raw data, we can plot a summary.
+
+For example, previously we summarized data by continent and position, to find the max and min streams.
+
+Let's do that again, but instead of viewing the summarized data as a table, let's save it as an object called by_continent_position, so you can visualize the data using plotnine.
+:::
+
+
+# Plotting
+
+```python
+(by_position
+  >> ggplot(aes("position", "max_streams"))
+   + geom_point()
+   + labs(title = "Top 200 hits - max streams overall")
+)
+```
+
+:::{.notes}
+You would
+construct the graph with the three steps of plotnine:
+
+* The data, which is by_year.
+* The aesthetics, which puts year on the x-axis and total population on the y-axis.
+* The type of graph, which in this case is a scatter plot, represented by geom_point.
+
+Notice that the steps are the same as when you were
+graphing countries in a scatter plot, even though it's a new dataset.
+:::
+
+
+# Plotting (result)
+
+```{python}
+(by_position
+  >> ggplot(aes("position", "max_streams"))
+   + geom_point()
+   + labs(title = "Top 200 hits - max streams overall")
+)
+```
+
+:::{.notes}
+The resulting graph of max streams by position, which is much easier to read than the previous plot with all the raw data.
+
+The top track is (by definition) the most streamed, with about 100 million streams!
+
+You might notice that the graph is a little misleading because it doesn't include zero:
+It's hard to get a a sense of how many streams the last position track had, since it is at the bottom of the graph.
+:::
+
+
+# Starting y-axis at 0
+
+<pre><code class="language-python">(by_position
+  >> ggplot(aes("position", "max_streams"))
+   + geom_point()
+   <mark>+ expand_limits(y = 0)</mark>
+   + labs(title = "Top 200 hits - max streams overall"))</code></pre>
+
+```{python}
+#| tags: [hide-input]
+(by_position
+  >> ggplot(aes("position", "max_streams"))
+   + geom_point()
+   + expand_limits(y = 0)
+   + labs(title = "Top 200 hits - max streams overall"))
+```
+
+:::{.notes}
+This is a good time to introduce another graphing option.
+By adding "expand underscore limits y = 0" to the end of the
+ggplot call, you can specify that you want the y-axis to start at zero.
+
+Notice that you added it to the end just like you would with facet_wrap.
+
+Now the graph makes it clearer that the top position track has over three times as many streams, as the lowest position one.
+
+You could have created other graphs of summarized data, such as a
+graph of the average streams rather than max, by changing the y aesthetic.
+:::
+ 
+
+# Calculating min and max streams
+
+```{python}
+by_continent_position = (
+  music_top200
+  >> group_by(_.continent, _.position)
+  >> summarize(max_streams = _.streams.max(),
+               min_streams = _.streams.min())
+)
+by_continent_position
+```
+
+:::{.notes}
+So far you've been graphing the by-position summarized data.
+But you have also learned to summarize after grouping by both position and continent,
+to see how much countries are streaming top tracks on different continents continents.
+:::
+
+
+# Visualize
+
+```{python}
+(by_continent_position
+  >> ggplot(aes("position", "max_streams", color = "continent"))
+   + geom_point()
+   + expand_limits(y = 0)
+   + labs(title = "Top 200 hits - max streams overall"))
+```
+
+
+:::{.notes}
+Since you now have data over position within each continent, you need a way to separate it in a visualization. 
+
+To do that you can use the color aesthetic you learned about in chapter two.
+
+By setting color equals continent, you can show five separate trends on the same graph.
+
+This lets us see that a country in the Americas has a hit tracks with a large number of streams, while there aren't any countries in Africa doing a lot of streaming spotify hits (for more on companies competing to stream in Africa, see [this article](https://weetracker.com/2020/05/13/music-streaming-africa/)).
+:::
+
+
+# Let's practice!
+
+:::{.notes}
+You'll often combine siuba verbs and plotnine visualizations as part of an exploratory
+analysis, so it's important to get into the habit of visualizing summarized or processed data.
+
+
+Scroll down to investigate the music data with filter.
+:::

@@ -1,0 +1,105 @@
+---
+title: Aesthetics
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: visualize
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+import slides from '../slides/02c-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+The plot below shows all top 200 hundred hits for Eric Chou across countries. 
+Use the code cell below to recreate it.
+
+(Note: running the code won't delete the plot!).
+
+```{python}
+# your code here
+
+
+
+#
+```
+
+```{python}
+#| tags: [hide-input]
+(music_top200
+  >> filter(_.artist == "Eric Chou")
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+   + labs(title = "Top 200 hits for Eric Chou across countries")
+)
+```
+
+### Exercise 2:
+
+Use plots of the data for the artists Snelle, Bazzi, and Davyi, to answer the questions below.
+
+You may need to write and run code multiple times, and produce multiple plots.
+
+```{python}
+(
+    
+)
+```
+
+```{python}
+#| tags: [solution-code]
+p1 = (music_top200
+  >> filter(_.artist.isin(["Snelle", "Bazzi", "Dayvi"]))
+  >> ggplot(aes("position", "streams", color = "country"))
+   + geom_point()
+   + facet_wrap("~artist")
+)
+
+p2 = (music_top200
+  >> filter(_.artist.isin(["Snelle", "Bazzi", "Dayvi"]))
+  >> ggplot(aes("position", "streams", color = "continent"))
+   + geom_point()
+   + facet_wrap("~artist")
+)
+
+print(p1, p2)
+```
+
+
+<prompt-expandable header="Which of these artists have hit tracks in the most continents?">
+
+<q-multiple-choice>
+  <q-opt text="Snelle"><span>Incorrect. Did you try using the color aesthetic?</span></q-opt>
+  <q-opt text="Bazzi"><span>That's right. Bazzi has hits on every continent.</span></q-opt>
+  <q-opt text="Dayvi"><span>Incorrect. Did you try using the color aesthetic?</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
+
+
+<prompt-expandable header="How many *countries* does Dayvi have hit tracks in?">
+
+<q-multiple-choice>
+  <q-opt text="1"><span>Incorrect.</span></q-opt>
+  <q-opt text="2"><span>That's right.</span></q-opt>
+  <q-opt text="3"><span>Incorrect.</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>

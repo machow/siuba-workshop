@@ -1,0 +1,190 @@
+---
+title: Getting started
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: visualize
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+import slides from '../slides/02-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+### Exercise 1: 
+
+In this exercise, there are two code cells. The first defines variables for tracks by different artists. The second creates a plot.
+
+Read through the code and plot, and then modify it to answer the question beneath.
+
+```{python}
+roddy = (
+  track_features
+  >> filter(_.artist == "Roddy Ricch")
+)
+
+billie = (
+  track_features
+  >> filter(_.artist == "Billie Eilish")
+)
+
+other = (
+  track_features
+  >> filter(_.artist == "ITZY")
+)
+
+other
+```
+
+The code below plots hits for the `roddy` variable.
+Note that you could swap out `roddy` for any of the other two variables above.
+
+```{python}
+(roddy
+  >> ggplot(aes("danceability", "speechiness"))
+   + geom_point()
+   + expand_limits(x = [0, 1], y = [0, 1])
+)
+```
+
+
+
+<prompt-expandable header="Who has the widest range of danceability? (i.e. biggist difference between highest and lowest)">
+
+<q-multiple-choice>
+  <q-opt text="Roddy Ricch"><span>Try again.</span></q-opt>
+  <q-opt text="Billie Eilish"><span>That's right!</span></q-opt>
+  <q-opt text="ITZY"><span>Try again. All the ITZY songs shown have roughly the same danceability.</span></q-opt>
+</q-multiple-choice>
+
+</prompt-expandable>
+
+
+```{python}
+#| tags: [solution-code]
+import pandas as pd
+all_together = pd.concat([roddy, billie, other])
+
+(all_together
+  >> ggplot(aes("danceability", "speechiness", color = "artist"))
+   + geom_point()
+   + expand_limits(x = [0, 1], y = [0, 1])
+)
+```
+
+### Exercise 2:
+
+Does it look like there any extremely popular songs over 15 minutes long?
+
+There is not one concrete answer to this question.
+Make a plot below, and come up with an answer you might share with another person.
+
+<details><summary>hint</summary>
+
+> The duration column contains the length of each song in seconds. Use this with the popularity column.
+
+</details>
+
+```{python}
+(track_features
+  >> ggplot()
+
+)
+```
+
+```{python}
+#| tags: [solution-code]
+(track_features
+  >> ggplot(aes("duration", "popularity"))
+   + geom_point()
+)
+```
+
+<details>
+<summary>possible answers</summary>
+    
+<a target="_blank" href="https://v.usetapes.com/XhWxJ9lAox">screencast</a>
+    
+    
+</details>
+
+### Exercise 3:
+
+Does the lowest energy track belong to a "low energy" artist? In this exercise, we'll explore the questions using tracks by two artists.
+
+Here is the track data sorted by energy.
+
+```{python}
+# this code is to help you examine track energy levels 
+(
+  track_features
+  >> arrange(_.energy)
+)
+```
+
+ Notice that Simon Smith has the lowest energy song ("Blagaslavlaju vas"), while Scooter has the highest energy song ("How Much is the Fish?").
+
+First, filter the track_features data to create a variable named `artist_low` that has only tracks by the artist Simon Smith.
+
+```{python}
+# create artist_low variable here
+
+artist_low = (
+    
+)
+```
+
+Next, create a variable named `artist_high` with tracks by the artist Scooter, who has the highest energy song.
+
+```{python}
+# create artist_high variable here
+
+ 
+```
+
+Based on separate plots of their data, does the artist with the lowest energy track seem to have lower energy songs in general?
+
+```{python}
+# examine plots of each artist, to answer question
+# note, we're examining energy, so to make a scatterplot you could set
+# the second variable to anything interesting (e.g. popularity)
+
+(___
+
+)
+```
+
+```{python}
+#| tags: [solution-code]
+artist_low = track_features >> filter(_.artist == "Simon Smith")
+
+artist_high = track_features >> filter(_.artist == "Scooter")
+
+ggplot(artist_low, aes("energy", "popularity")) + geom_point()
+
+#ggplot(artist_high, aes("energy", "popularity")) + geom_point()
+```
+
+<details><summary>possible answer</summary>
+
+The high energy artist, Scooter, seems to only have high energy songs (from about .9 to 1 energy).
+    
+On the other hand, the low energy artist, Simon Smith, seems to have a wide range of energy values (from about 0 to 1 energy).
+</details>

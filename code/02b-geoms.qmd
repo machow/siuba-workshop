@@ -1,0 +1,146 @@
+---
+title: Geoms
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: visualize
+exercise_pars:
+  - size:
+      label: Size
+      options:
+        - 11
+        - 5
+        - 7
+        - 14
+    ha:
+      label: Horizontal align
+      options:
+        - center
+        - left
+        - right
+    nudge:
+      label: Nudge
+      options:
+        - nudge_y = 0
+        - nudge_y = .05
+        - nudge_y = -.05
+        - nudge_x = .05
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+import slides from '../slides/02b-slides.markdown'
+
+<RevealSlides :slides="slides" />
+
+### Exercise 1:
+
+The options below let you change different arguments to `geom_text()`. Try changing them and running the code, in order to get a readable plot. Then, answer the questions underneath the plot.
+
+
+import CodeCellTemplater from '~/components/Cell/CodeCellTemplater.vue'
+
+<CodeCellTemplater
+    :templateVars="$frontmatter.exercise_pars[0]"
+    :status="nb.status" :onExecute="nb.execute" language="python"
+    >
+
+    (track_features
+      >> filter(_.artist == "Queen")
+      >> ggplot(aes("energy", "valence", label = "track_name"))
+       + geom_point()
+       + geom_text(size = ${this.size}, ha = "${this.ha}", ${this.nudge})
+    )    
+    
+<template v-slot:output>
+
+![](../assets/02b-queen-plot.png)
+
+
+</template>    
+
+</CodeCellTemplater>
+
+
+<p>Below are three songs at different corners of the graph. Can you tell whether they have high or low energy? Valence? Which do you think has low energy and low valence?</p>
+
+
+<div style="display: flex; width: 100%; flex-grow: 1;">
+<div style="flex: 1 0;">
+<p>Hammer to Fall</p>
+
+<iframe width="200" src="https://www.youtube.com/embed/JU5LMG3WFBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div style="flex: 1 0;">
+<p>Crazy Little Thing Called Love</p>
+
+<iframe width="200" src="https://www.youtube.com/embed/zO6D_BAuYCI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div style="flex: 1 0;">
+<p>Love of My Life</p>
+
+<iframe width="200" src="https://www.youtube.com/embed/7hFeER3_ZRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+### Exercise 2:
+
+This exercise is a case study on selecting extreme differences between two features, such as energy and acousticness.
+
+At the end of the case study, you'll be prompted to add code!
+
+Generally tracks with higher energy tend to be less acoustic, as shown in the plot below.
+
+```{python}
+(track_features
+  >> filter(_.popularity > 33)
+  >> ggplot(aes("energy", "acousticness"))
+   + geom_point()
+)
+```
+
+But notice that in the plot above, there's a point in the top right, that is high energy and high acousticness.
+
+In order to find high energy and acousticness songs like this, I used the following code.
+
+```{python}
+(track_features
+  >> filter(_.energy > .9, _.popularity > 33)
+  >> arrange(-_.acousticness)
+)
+```
+
+Can you plot songs by MC Kevin o Chris, with both points and text?
+
+```{python}
+(track_features
+  >> filter(_.artist == "MC Kevin o Chris")
+  >> ___
+)
+```
+
+Why do you think Vamos pra Gaiola is high energy and high acousticness?
+
+<iframe width="200" src="https://www.youtube.com/embed/0R6zBcV9JiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<details><summary>answer</summary>
+My best guess is because the drums are done by a persons voice, there are few instruments, but it is still a pretty fast tempo. It would be interesting to look at their other tracks for a comparison.
+</details>
+
+Can you modify each code block in the case study to be about high energy and low danceability songs?

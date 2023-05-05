@@ -1,0 +1,133 @@
+---
+title: Using plotnine Aesthetics
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+{{< include _setup.qmd >}}
+
+* filter artist, get characteristics
+* try different combinations of characteristics--which ones seem most related?
+* diagnose error (unquoted ggplot)
+* diagnose error (verb without _)
+* plot with aesthetics
+* plot text instead
+* labs?
+
+
+:::{.notes}
+In this lesson, you'll use plotnine aesthetics to set more than just the position of points on a plot, but other features too--such as size and color.
+:::
+
+# Scatterplots
+
+```{python}
+billie = filter(track_features, _.artist == "Billie Eilish")
+
+(billie
+  >> ggplot(aes("energy", "valence"))
+   + geom_point()
+)
+```
+
+:::{.notes}
+You've learned how to create a scatter plot to compare
+two variables within your data
+using two visual aesthetics: energy x-axis, and valence on the y-axis.
+:::
+
+
+# Additional variables
+
+```{python}
+billie
+```
+
+:::{.notes}
+But these aren't the only variables in the `track_features` dataset: for example, you also have acousticness and popularity.
+You may want to examine relationships among all these variables in the same plot.
+
+You already used the x-axis to represent energy and the y-axis to valence
+Now you'll learn to add two more aesthetics--color and size--to communicate even more information in your scatter plot.
+:::
+
+# The color aesthetic
+
+```{python}
+(billie
+  >> ggplot(aes("energy", "valence", color = "acousticness"))
+   + geom_point()
+)
+```
+
+:::{.notes}
+The scatterplot shows that songs with higher energy, tend to have higher valence. Another variable that might be related to energy is `acousticness`.
+
+You can explore this relationship by setting the color of your points, like you see here. 
+To use this aesthetic, you add color equals acousticness inside
+the aes, next to x equals energy and y equals valence.
+
+Notice that ggplot2 automatically adds a legend to the plot, indicating which color represents which acousticness.
+
+This communicates that lower energy tracks (toward the left of the plot) tend to be more acoustic. Note that brighter colors indicate more acoustic tracks.
+:::
+
+# The size aesthetic
+
+```{python}
+(billie
+  >> ggplot(aes("energy", "valence", color = "acousticness", size = "popularity"))
+   + geom_point()
+)
+```
+
+:::{.notes}
+Another variable you may want to include in the graph is population, represented by the pop variable in the dataset.
+
+One way to represent it is with the size of the points in the scatterplot,
+with higher popularity songs getting larger points.
+
+Just like x, y, and color, you add size = "popularity" within the aes parentheses.
+
+<details>
+    
+Note that to keep the length of each of the code lines reasonable, we put the size aesthetic on
+a second line, but this doesn't make any difference, and you don't have to do that in the exercises.
+You've now learned to use four aesthetics in a plot: x, y, color,
+and size: to communicate information about four variables in your dataset.
+
+</details>
+:::
+
+# Aesthetics with multiple geoms
+
+```{python}
+(billie
+  >> ggplot(aes("energy", "valence", 
+                color = "acousticness", size = "popularity",
+                label = "track_name"))
+   + geom_point()
+   + geom_text(nudge_y = .1)
+)
+```
+
+:::{.notes}
+Notice that in this plot, the aesthetics set effect both the points and the text.
+:::
+
+# Let's practice!
+
+:::{.notes}
+In the exercises,
+you'll learn to mix and match aesthetics and
+variables to further explore the track features.
+:::

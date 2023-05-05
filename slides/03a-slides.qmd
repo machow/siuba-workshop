@@ -1,0 +1,190 @@
+---
+title: Summarizing data
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+{{< include _setup.qmd >}}
+
+
+:::{.notes}
+In this chapter, you'll return to the topic of data transformation with siuba to learn more ways to explore your data.
+:::
+
+# Data analysis
+
+![](model-workflow.png)
+
+:::{.notes}
+Analyses will usually involve a cycle between these steps of data transformation and visualization, as well as additional components of the data science workflow, like modeling (that this course won't focus on).
+:::
+
+
+# Extracting data
+
+```{python}
+(music_top200
+  >> filter(_.country == "Japan", _.position == 1)
+)
+```
+
+:::{.notes}
+You've learned to use the
+filter verb to pull out individual
+observations, such as the track in the first position for Japan.
+
+Notice that the track's duration is about 280 seconds.
+Is this is shorter or longer than the average track.
+
+You'll learn to answer this question by summarizing many observations into a single data point.
+:::
+
+
+# The summarize verb
+
+![](./model-summarize.png)
+
+```{python}
+(music_top200
+  >> summarize(avg_duration = _.duration.mean())
+)
+```
+
+:::{.notes}
+You might want to know if the 280 seconds we saw is longer than the average track across all countries.
+
+You would do this with the summarize verb. Notice that summarize collapses the entire table down into one row.
+
+In the output, we see the answer to our question: mean (or average) duration was around 205 seconds.
+
+
+**(Click down for a breakdown of the code)**
+:::
+
+
+## The summarize verb
+
+![](./model-summarize.png)
+
+<pre><code class="language-python">(music_top200
+  >> summarize(<mark>avg_duration =</mark> _.duration.mean())
+)</code></pre>
+
+```{python}
+#| tags: [hide-input]
+(music_top200
+  >> summarize(avg_duration = _.duration.mean())
+)
+```
+
+:::{.notes}
+Take your `music_top200` data, pipe it into summarize.
+
+Then, specify that you're creating a summary column called avg_duration.
+
+Notice that the highlighted code is similar to when created a new column with the mutate verb.
+:::
+
+
+## The summarize verb
+
+![](./model-summarize.png)
+
+<pre><code class="language-python">(music_top200
+  >> summarize(avg_duration = _.duration<mark>.mean()</mark>)
+)</code></pre>
+
+```{python}
+#| tags: [hide-input]
+(music_top200
+  >> summarize(avg_duration = _.duration.mean())
+)
+```
+
+:::{.notes}
+The "duration dot mean, followed by open and close parentheses" is worth examining.
+
+This is calling the **method** mean on the variable duration.
+The mean method calculates the average of a set of values.
+:::
+
+
+# Summarizing one country
+
+```{python}
+(music_top200
+  >> filter(_.country == "Japan")
+  >> summarize(avg_duration = _.duration.mean())
+)
+```
+
+:::{.notes}
+If you think about it, it doesn't really make sense to summarize across all countries.
+It may make more sense to compare our track to averages in the same country: Japan.
+
+To answer this, you can combine the summarize verb with filter:
+filter your data for a particular country first, then summarize the result.
+This shows you that the average track duration in the Japan top 200 chart was about 250 seconds.
+:::
+
+
+# Summarizing into multiple columns
+
+```{python}
+(music_top200
+  >> filter(_.country == "Japan")
+  >> summarize(
+      avg_duration = _.duration.mean(),
+      ttl_streams = _.streams.sum()
+  )
+)
+```
+
+
+:::{.notes}
+You can create multiple summaries at once with the summarize verb.
+
+For example, suppose that along with finding the average track duration in Japan,
+you want to find their chart's total streams.
+
+To do that, add a comma after the mean of the duration.
+Then, specify another column you're creating.
+
+You could give it a useful name like ttl_streams, and say that it's
+equal to the sum--that's another built-in function--of the pop variable.
+:::
+
+
+# Methods for summarizing
+
+E.g. `_.some_column.mean()`
+
+* `.mean()`
+* `.sum()`
+* `.median()`
+* `.min()`
+* `.max()`
+
+
+:::{.notes}
+The mean and sum are just two methods you could use to summarize a variable within a dataset.
+
+Another example is median: the median represents
+the point in a set of numbers where half the numbers are above that point and half of the numbers are below.
+
+Two others are min, for minimum, and max, for maximum.
+
+In the exercises, you'll use several of these functions to answer questions about the `music_top200` dataset.
+:::
+
+# Let's practice!
+
