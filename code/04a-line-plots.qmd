@@ -1,0 +1,30 @@
+---
+title: Line plots
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: plot types
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+
+import slides from '../slides/03c-slides.markdown'
+
+<RevealSlides :slides="slides" />

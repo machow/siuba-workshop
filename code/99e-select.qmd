@@ -1,0 +1,60 @@
+---
+title: Select
+output: html_document
+editor_options:
+  chunk_output_type: console
+chunk: wrangle
+jupyter:
+  jupytext:
+    cell_metadata_filter: 'name,tags,-all'
+    notebook_metadata_filter: purview
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+# Selecting
+
+```{python}
+from setup import *
+from setup import ___, _
+```
+
+## Select
+
+TODO: fill in explanation
+
+```{python}
+(music_top200
+  >> select(_.country, _.position, _.track_name, _.artist, _.energy)
+)
+```
+
+### Exercise 1: removing country_code 
+
+Make a small change the `select` below to remove the column `country_code` from the data, rather than include it.
+
+```{python}
+(music_top200
+  >> select(_.country_code)
+)
+```
+
+### Exercise 2: arrange and select
+
+Modify the code below to first arrange by number of `streams`, and then select `country` and `artist`
+
+```{python}
+# combine select and arrange (what happens when try to arrange column that's selected out);
+# (cont.) have comment out select, why does it work now?
+(music_top200
+  >> ___
+  >> ___
+)
+```
