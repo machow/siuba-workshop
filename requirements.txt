@@ -5,6 +5,9 @@ numpy==1.24.2
 pandas==1.5.3
 plotnine
 siuba
+# note that statsmodels v0.14.0 does not have a linux wheel
+# we need to pin to this earlier version to install quickly
+statsmodels==0.13.5
 torch==1.12.1
 torchvision==0.13.1
 tqdm==4.64.0
