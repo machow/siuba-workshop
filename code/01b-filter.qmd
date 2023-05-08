@@ -53,15 +53,12 @@ Change the filter to get hits from Canada.
 )
 ```
 
-<prompt-expandable header="Comparing results, which artist is in the top 3 in both (the) United States and Canada?">
+Comparing results, which artist is in the top 3 in both (the) United States and Canada?
 
-<q-multiple-choice>
-  <q-opt text="Roddy Ricch"><span>Nailed it!</span></q-opt>
-  <q-opt text="The Weeknd"><span>That artist is only top 3 in the United States</span></q-opt>
-  <q-opt text="Tones And I"><span>That artist is only top 3 in the Canada</span></q-opt>
-</q-multiple-choice>
+<details><summary>Roddy Ricch</summary>Nailed it!</details>
+<details><summary>The Weeknd</summary>That artist is only top 3 in the United States</details>
+<details><summary>Tones and I</summary>That artist is only top 3 in the Canada</details>
 
-</prompt-expandable>
 
 ### Exercise 2: 
 
@@ -81,16 +78,13 @@ Change the filter to get hits from Canada.
 )
 ```
 
-<prompt-expandable header="Which artist is in position 5 in South Africa?">
+Which artist is in position 5 in South Africa?
 
-<q-multiple-choice>
-  <q-opt text="Bad Bunny"><span></span></q-opt>
-  <q-opt text="Eminem"><span>That's right!</span></q-opt>
-  <q-opt text="BTS"><span></span></q-opt>
-  <q-opt text="Selena Gomes"><span></span></q-opt>  
-</q-multiple-choice>
+<details><summary>Bad Bunny</summary></details>
+<details><summary>Eminem</summary>That's right!</details>
+<details><summary>BTS</summary></details>
+<details><summary>Selena Gomes</summary></details>
 
-</prompt-expandable>
 
 ### Exercise 3:
 
