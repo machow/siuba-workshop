@@ -29,7 +29,7 @@ from setup import ___, _
 Delete the `#` symbol on the line `# music_top200`. This symbol is called a comment, and causes everything to the right of it to be ignored.
 
 ```{python}
-# I am a helpful not. I am not code!
+# I am a helpful note. I am not code!
 
 # music_top200
 ```
@@ -55,6 +55,13 @@ Currently, the `duration` is calculated in seconds.
 )
 ```
 
+```{python}
+#| collapsed: true
+(music_top200
+  >> mutate(duration_ms = _.duration * 1000)
+)
+```
+
 ### Exercise 2:
 
 Uncomment the mutate in the pipe below. Can you fix the two errors in it?
@@ -68,6 +75,7 @@ It should return data with a new column on the right, that divides position by 2
 ```
 
 ```{python}
+#| collapsed: true
 #| tags: [solution-code]
 (music_top200
   >> mutate(new_position = _.position / 200)
@@ -93,6 +101,7 @@ Which artist with the shortest name has the most streams?
 ```
 
 ```{python}
+#| collapsed: true
 #| tags: [solution-code]
 (music_top200
   >> mutate(artist_length = _.artist.str.len())
