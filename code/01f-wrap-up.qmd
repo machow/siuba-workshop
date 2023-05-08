@@ -70,7 +70,7 @@ For the artist with the top track in Spain, what country has the most streams fo
 
 ```{python}
 #| tags: [solution-code]
-#| collapsed: true 
+#| jupyter: {source_hidden: true} 
 # Note: I would run the pipe with...
 #   * only the commented out filter first, to get the artist (KAROL G)
 #   * then, with the uncommented filter and arrange
@@ -97,7 +97,7 @@ Once you've done that, try deleting the comments (`#`) in the code below to plot
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> filter(_.country == "Hong Kong")

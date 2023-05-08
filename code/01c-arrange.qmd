@@ -46,7 +46,7 @@ Modify the code below to arrange by artist name in **descending** order.
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> arrange(-_.artist)
@@ -76,7 +76,7 @@ What is the first track, if you filter to keep only observations from the countr
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> filter(_.country == "Mexico")
@@ -109,7 +109,7 @@ Below is code with the arrange verb removed. Modify it to arrange in ascending o
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> arrange(_.position, _.streams)
@@ -141,7 +141,7 @@ What's the shortest song in the top position in the `music_top200` data?
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 # NOTE: there are multiple ways to get the answer!
 (music_top200

@@ -46,7 +46,7 @@ Change the filter to get hits from Canada.
 ```
 
 ```{python}
-#| collapse: true 
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> filter(_.country == "Canada")
@@ -74,7 +74,7 @@ Change the filter to get hits from Canada.
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> filter(_.position == 5)
@@ -111,7 +111,7 @@ In the slides we discussed the `==` operator. Here is a longer list of some opti
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> filter(_.country == "Hong Kong", _.position < 6)
@@ -134,7 +134,7 @@ How many times has The Weeknd had over 1,000,000 streams?
 ```
 
 ```{python}
-#| collapsed: true
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 (music_top200
   >> filter(_.artist == "The Weeknd", _.streams > 1000000)
