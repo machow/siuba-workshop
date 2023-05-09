@@ -19,6 +19,12 @@ jupyter:
     name: python3
 ---
 
+```{=html}
+<iframe class="slide-deck" src="../slides/01c-slides.html"></iframe>
+```
+
+Click [here](../slides/01c-slides.qmd) to open the slides full screen.
+
 ```{python}
 from setup import *
 from setup import ___, _
@@ -60,6 +66,7 @@ What artist is the last observation (row) in the result?
 <details><summary>Aaron Smith</summary>Incorrect</details>
 <details><summary>Y2K</summary>Incorrect</details>  
 
+
 ### Exercise 2:
 
 What is the first track, if you filter to keep only observations from the country Mexico, and then sort in **ascending order** by track name?
@@ -84,6 +91,7 @@ What is the first track, if you filter to keep only observations from the countr
 <details><summary>一天 (電視劇《想見你》插曲)</summary>Incorrect</details>
 <details><summary>everything i wanted</summary>Incorrect</details>
 <details><summary>#24</summary>Be sure to filter where country is Mexico</details>  
+
 
 ### Exercise 3: 
 
@@ -112,6 +120,7 @@ What country has the position 1 track (The Box) with fewest streams?
 <details><summary>United States</summary>Incorrect</details>
 <details><summary>Brazil</summary>Incorrect</details>
 <details><summary>Luxembourg</summary>Incorrect</details>  
+
 
 ### Exercise 4
 

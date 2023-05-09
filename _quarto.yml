@@ -1,26 +1,48 @@
 project:
   type: website
 
+filters:
+  - scripts/hide_solutions.lua
+
 website:
   title: "siuba-workshop"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - sidebar:slides
-      - sidebar:code
+      - sidebar:lessons
+      - text: "Help"
+        menu: 
+          - help/setup.qmd
+          - help/faq.qmd
+    tools:
+      - icon: github
+        href: https://github.com/machow/siuba-workshop
+
 
   sidebar:
-    - id: slides
-      title: Slides
+    - id: dummy
+    - id: lessons
+      title: Lessons
       style: floating
       align: left
-      contents: "slides/*"
-    - id: code
-      title: Code
-      style: floating
-      align: left
-      contents: "code/*"
+      contents:
+        - code/01-intro-data-science.qmd
+        - section: "Ch 1: Wrangle"
+          contents:
+            - code/01b-filter.qmd
+            - code/01c-arrange.qmd
+            - code/01d-mutate.qmd
+            - code/01f-wrap-up.qmd
+        - section: "Ch 2: Visualize"
+          contents:
+            - code/02a-intro-data-viz.qmd
+            - code/02b-geoms.qmd
+            - code/02c-aesthetics.qmd
+            - code/02d-facets.qmd
+        - section: "Ch 3: Summarize"
+          contents:
+            - code/03a-summarize.qmd
+            - code/03b-group-by.qmd
+            - code/03c-summary-viz.qmd
 
 
 format:
@@ -28,6 +50,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-

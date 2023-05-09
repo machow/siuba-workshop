@@ -1,7 +1,7 @@
 # quarto
 _site
 
-# 
+#
 .DS_Store
 .*.sw[pomn]
 
@@ -167,3 +167,5 @@ cython_debug/
 #.idea/
 
 /.quarto/
+
+/.luarc.json
