@@ -48,6 +48,6 @@ Throughout the workshop, we'll use plotnine to graph the data.
 You should have some familiarity with Python.
 Some experience with pandas will be useful, but is not necessary!
 
-## Preperation
+## Preparation
 
 ## Using this site
