@@ -50,23 +50,19 @@ The code below calculates the average duration.
 )
 ```
 
-<prompt-expandable header="What is the median duration?">
-<q-multiple-choice>
-  <q-opt text="205.990"><span></span></q-opt>
-  <q-opt text="65.631"><span></span></q-opt>
-  <q-opt text="201.084"><span>That's right!</span></q-opt>
-  <q-opt text="851.871"><span></span></q-opt>  
-</q-multiple-choice>
-</prompt-expandable>
+What is the median duration?
 
-<prompt-expandable header="Add a second argument to summarize, which calculates the sum of streams. How large is it?">
-<q-multiple-choice>
-  <q-opt text="30,182,252"><span></span></q-opt>
-  <q-opt text="301,822,525"><span>That's right!</span></q-opt>  
-  <q-opt text="451,822,525"><span></span></q-opt>
-  <q-opt text="45,182,252"><span></span></q-opt>  
-</q-multiple-choice>
-</prompt-expandable>
+<details><summary>205.990</summary>Incorrect</details>
+<details><summary>65.631</summary>Incorrect</details>
+<details><summary>201.084</summary>That's right!</details>
+<details><summary>851.871</summary>Incorrect</details>
+
+Add a second argument to summarize, which calculates the sum of streams. How large is it?
+
+<details><summary>30,182,252</summary>Incorrect</details>
+<details><summary>301,822,525</summary>That's right!</details>
+<details><summary>451,822,525</summary>Incorrect</details>
+<details><summary>45,182,252</summary>Incorrect</details>
 
 ### Exercise 2:
 
@@ -91,15 +87,11 @@ Now, use summarize to calculate the min duration, and the max duration directly.
 )
 ```
 
-<prompt-expandable header="Why would you use summarize like this, rather than the arrange and filter approach?">
+Why would you use summarize like this, rather than the arrange and filter approach?
 
-<q-multiple-choice>
-  <q-opt text="The min and max values might be in different observations (rows)."><span>That's right. Filter keeps specific rows, but summarize can collect values from across rows.</span></q-opt>
-  <q-opt text="It keeps more of the original data."><span>Try again. Filter keeps all the variables (columns), while summarize will remove most of them.</span></q-opt>
-  <q-opt text="The arrange and filter approach can do anything summarize can."><span>Try again.</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
+<details><summary>The min and max values might be in different observations (rows).</summary>That's right. Filter keeps specific rows, but summarize can collect values from across rows.</details>
+<details><summary>It keeps more of the original data.</summary>Try again. Filter keeps all the variables (columns), while summarize will remove most of them.</details>
+<details><summary>The arrange and filter approach can do anything summarize can.</summary>Try again.</details>
 
 ### Exercise 3:
 

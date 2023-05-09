@@ -63,15 +63,11 @@ some_artists = (
 )
 ```
 
-<prompt-expandable header="Which of the three artists tends to have the lowest valence?">
+Which of the three artists tends to have the lowest valence?
 
-<q-multiple-choice>
-  <q-opt text="Billie Eilish"><span>Correct! We'll discuss how to measure the idea of "tends to have" in the next chapter.</span></q-opt>
-  <q-opt text="ITZY"><span>That's not right. This artist tends to have the highest valence.</span></q-opt>
-  <q-opt text="Roddy Ricch"><span>That's not right. Look for the cluster of points toward the bottom of the plot.</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
+<details><summary>Billie Eilish</summary>Correct! We'll discuss how to measure the idea of "tends to have" in the next chapter.</details>
+<details><summary>ITZY</summary>That's not right. This artist tends to have the highest valence.</details>
+<details><summary>Roddy Ricch</summary>That's not right. Look for the cluster of points toward the bottom of the plot.</details>
 
 Which value seems easier to compare across facets, when ncol is set to 1?
 

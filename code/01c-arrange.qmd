@@ -59,12 +59,12 @@ Modify the code below to arrange by artist name in **descending** order.
 )
 ```
 
-**MCQ:** What artist is the last observation (row) in the result?
+What artist is the last observation (row) in the result?
 
 <details><summary>$NOT</summary>Great job!</details>
-<details><summary>黃宣</summary>hat's not right. Did you arrange in ascending, rather than descending order?</details>
+<details><summary>黃宣</summary>That's not right. Did you arrange in ascending, rather than descending order?</details>
 <details><summary>Aaron Smith</summary>Incorrect</details>
-<details><summary>Y2K</summary>Incorrect</details>
+<details><summary>Y2K</summary>Incorrect</details>  
 
 
 ### Exercise 2:
@@ -87,11 +87,10 @@ What is the first track, if you filter to keep only observations from the countr
 )
 ```
 
-
 <details><summary>11 PM</summary>Great job!</details>
 <details><summary>一天 (電視劇《想見你》插曲)</summary>Incorrect</details>
 <details><summary>everything i wanted</summary>Incorrect</details>
-<details><summary>#24</summary>Be sure to filter where country is Mexico</details>
+<details><summary>#24</summary>Be sure to filter where country is Mexico</details>  
 
 
 ### Exercise 3: 
@@ -115,11 +114,12 @@ Below is code with the arrange verb removed. Modify it to arrange in ascending o
 )
 ```
 
+What country has the position 1 track (The Box) with fewest streams?
 
 <details><summary>Cyprus</summary>That's right! Make sure to double check that the track is named The Box by Roddy Ricch.</details>
 <details><summary>United States</summary>Incorrect</details>
 <details><summary>Brazil</summary>Incorrect</details>
-<details><summary>Luxembou</summary>Incorrect</details>
+<details><summary>Luxembourg</summary>Incorrect</details>  
 
 
 ### Exercise 4
@@ -143,8 +143,7 @@ What's the shortest song in the top position in the `music_top200` data?
 )
 ```
 
-
 <details><summary>Bad Girls, Good Vibes</summary>That's right!</details>
 <details><summary>Klop Klop</summary>Incorrect. This is the shortest track in any position. Can you sort to get top position tracks first?</details>
 <details><summary>Susamam</summary>Incorrect. This is the longest track in any position. Can you sort to get top position tracks first?</details>
-<details><summary>Blockparty</summary>Incorrect. This is the shortest track in the last position.</details>
+<details><summary>Blockparty</summary>Incorrect. This is the shortest track in the last position.</details>  

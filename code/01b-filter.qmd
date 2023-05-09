@@ -80,10 +80,10 @@ Comparing results, which artist is in the top 3 in both (the) United States and 
 
 Which artist is in position 5 in South Africa?
 
-<details><summary>Bad Bunny</summary></details>
+<details><summary>Bad Bunny</summary>Incorrect</details>
 <details><summary>Eminem</summary>That's right!</details>
-<details><summary>BTS</summary></details>
-<details><summary>Selena Gomes</summary></details>
+<details><summary>BTS</summary>Incorrect</details>
+<details><summary>Selena Gomes</summary>Incorrect</details>
 
 
 ### Exercise 3:

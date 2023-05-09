@@ -115,8 +115,7 @@ Which artist with the shortest name has the most streams?
 )
 ```
 
-
 <details><summary>V, for their track in Indonesia</summary>That's right!</details>
 <details><summary>V, for their track in Hong Kong</summary>That's the right artist, but did you sort by most streams first?</details>
 <details><summary>F, for their track in Finland</summary>Incorrect. Did you sort by most streams first?</details>
-<details><summary>F, for their track in Hong Kong</summary>Incorrect. Did you sort by most streams first?</details>
+<details><summary>F, for their track in Hong Kong</summary>Incorrect. Did you sort by most streams first?</details> 

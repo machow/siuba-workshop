@@ -70,18 +70,11 @@ Note that you could swap out `roddy` for any of the other two variables above.
 )
 ```
 
+Who has the widest range of danceability? (i.e. biggist difference between highest and lowest)
 
-
-<prompt-expandable header="Who has the widest range of danceability? (i.e. biggist difference between highest and lowest)">
-
-<q-multiple-choice>
-  <q-opt text="Roddy Ricch"><span>Try again.</span></q-opt>
-  <q-opt text="Billie Eilish"><span>That's right!</span></q-opt>
-  <q-opt text="ITZY"><span>Try again. All the ITZY songs shown have roughly the same danceability.</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
-
+<details><summary>Roddy Ricch</summary>Try again.</details>
+<details><summary>Billie Eilish</summary>That's right!</details>
+<details><summary>ITZY</summary>Try again. All the ITZY songs shown have roughly the same danceability.</details>
 
 ```{python}
 #| tags: [solution-code]
