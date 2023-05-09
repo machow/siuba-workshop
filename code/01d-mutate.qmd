@@ -19,6 +19,12 @@ jupyter:
     name: python3
 ---
 
+```{=html}
+<iframe class="slide-deck" src="../slides/01d-slides.html"></iframe>
+```
+
+Click [here](../slides/01d-slides.qmd) to open the slides full screen.
+
 ```{python}
 from setup import *
 from setup import ___, _
@@ -110,13 +116,7 @@ Which artist with the shortest name has the most streams?
 ```
 
 
-<prompt-expandable header="">
-
-<q-multiple-choice>
-  <q-opt text="V, for their track in Indonesia"><span>That's right!</span></q-opt>
-  <q-opt text="V, for their track in Hong Kong"><span>That's the right artist, but did you sort by most streams first?</span></q-opt>
-  <q-opt text="F, for their track in Finland"><span>Incorrect. Did you sort by most streams first?</span></q-opt>
-    <q-opt text="F, for their track in Hong Kong"><span>Incorrect. Did you sort by most streams first?</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
+<details><summary>V, for their track in Indonesia</summary>That's right!</details>
+<details><summary>V, for their track in Hong Kong</summary>That's the right artist, but did you sort by most streams first?</details>
+<details><summary>F, for their track in Finland</summary>Incorrect. Did you sort by most streams first?</details>
+<details><summary>F, for their track in Hong Kong</summary>Incorrect. Did you sort by most streams first?</details>

@@ -19,6 +19,12 @@ jupyter:
     name: python3
 ---
 
+```{=html}
+<iframe class="slide-deck" src="../slides/01c-slides.html"></iframe>
+```
+
+Click [here](../slides/01c-slides.qmd) to open the slides full screen.
+
 ```{python}
 from setup import *
 from setup import ___, _
@@ -53,16 +59,13 @@ Modify the code below to arrange by artist name in **descending** order.
 )
 ```
 
-<prompt-expandable header="What artist is the last observation (row) in the result?">
+**MCQ:** What artist is the last observation (row) in the result?
 
-<q-multiple-choice>
-  <q-opt text="$NOT"><span>Great job!</span></q-opt>
-  <q-opt text="黃宣"><span>That's not right. Did you arrange in ascending, rather than descending order?</span></q-opt>
-  <q-opt text="Aaron Smith"><span>Incorrect</span></q-opt>
-  <q-opt text="Y2K"><span>Incorrect</span></q-opt>    
-</q-multiple-choice>
+<details><summary>$NOT</summary>Great job!</details>
+<details><summary>黃宣</summary>hat's not right. Did you arrange in ascending, rather than descending order?</details>
+<details><summary>Aaron Smith</summary>Incorrect</details>
+<details><summary>Y2K</summary>Incorrect</details>
 
-</prompt-expandable>
 
 ### Exercise 2:
 
@@ -84,16 +87,12 @@ What is the first track, if you filter to keep only observations from the countr
 )
 ```
 
-<prompt-expandable header="">
 
-<q-multiple-choice>
-  <q-opt text="11 PM"><span>Great job!</span></q-opt>
-  <q-opt text="一天 (電視劇《想見你》插曲)"><span>Incorrect</span></q-opt>
-  <q-opt text="everything i wanted"><span>Incorrect</span></q-opt>
-  <q-opt text="#24"><span>Be sure to filter where country is Mexico</span></q-opt>    
-</q-multiple-choice>
+<details><summary>11 PM</summary>Great job!</details>
+<details><summary>一天 (電視劇《想見你》插曲)</summary>Incorrect</details>
+<details><summary>everything i wanted</summary>Incorrect</details>
+<details><summary>#24</summary>Be sure to filter where country is Mexico</details>
 
-</prompt-expandable>
 
 ### Exercise 3: 
 
@@ -117,16 +116,11 @@ Below is code with the arrange verb removed. Modify it to arrange in ascending o
 ```
 
 
-<prompt-expandable header="What country has the position 1 track (The Box) with fewest streams?">
+<details><summary>Cyprus</summary>That's right! Make sure to double check that the track is named The Box by Roddy Ricch.</details>
+<details><summary>United States</summary>Incorrect</details>
+<details><summary>Brazil</summary>Incorrect</details>
+<details><summary>Luxembou</summary>Incorrect</details>
 
-<q-multiple-choice>
-  <q-opt text="Cyprus"><span>That's right! Make sure to double check that the track is named The Box by Roddy Ricch.</span></q-opt>
-  <q-opt text="United States"><span>Incorrect</span></q-opt>
-  <q-opt text="Brazil"><span>Incorrect</span></q-opt>
-    <q-opt text="Luxembou"><span>Incorrect</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
 
 ### Exercise 4
 
@@ -150,13 +144,7 @@ What's the shortest song in the top position in the `music_top200` data?
 ```
 
 
-<prompt-expandable header="">
-
-<q-multiple-choice>
-  <q-opt text="Bad Girls, Good Vibes"><span>That's right!</span></q-opt>
-  <q-opt text="Klop Klop"><span>Incorrect. This is the shortest track in any position. Can you sort to get top position tracks first?</span></q-opt>
-  <q-opt text="Susamam"><span>Incorrect. This is the longest track in any position. Can you sort to get top position tracks first?</span></q-opt>
-    <q-opt text="Blockparty"><span>Incorrect. This is the shortest track in the last position.</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
+<details><summary>Bad Girls, Good Vibes</summary>That's right!</details>
+<details><summary>Klop Klop</summary>Incorrect. This is the shortest track in any position. Can you sort to get top position tracks first?</details>
+<details><summary>Susamam</summary>Incorrect. This is the longest track in any position. Can you sort to get top position tracks first?</details>
+<details><summary>Blockparty</summary>Incorrect. This is the shortest track in the last position.</details>
