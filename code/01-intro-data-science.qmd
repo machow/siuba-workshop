@@ -181,7 +181,6 @@ Which artist has a track in the second position on the United States charts?
 <details><summary>Roddy Ricch</summary>Try again. That artist is in the first position.</details>
 <details><summary>Lil Uzi Vert</summary>That's right!</details>
 <details><summary>Halsey</summary>Try again. That artist is the second from last position (198).</details>
-<details><summary>F, for their track in Hong Kong</summary>Incorrect. Did you sort by most streams first?</details> 
 
 ### Exercise 2: inspecting `track_features` data
 
