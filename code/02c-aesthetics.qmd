@@ -82,24 +82,14 @@ p2 = (music_top200
 print(p1, p2)
 ```
 
+Which of these artists have hit tracks in the most continents?
 
-<prompt-expandable header="Which of these artists have hit tracks in the most continents?">
+<details><summary>Snelle</summary>Incorrect. Did you try using the color aesthetic?</details>
+<details><summary>Bazzi</summary>That's right. Bazzi has hits on every continent.</details>
+<details><summary>Dayvi</summary>Incorrect. Did you try using the color aesthetic?</details>
 
-<q-multiple-choice>
-  <q-opt text="Snelle"><span>Incorrect. Did you try using the color aesthetic?</span></q-opt>
-  <q-opt text="Bazzi"><span>That's right. Bazzi has hits on every continent.</span></q-opt>
-  <q-opt text="Dayvi"><span>Incorrect. Did you try using the color aesthetic?</span></q-opt>
-</q-multiple-choice>
+How many *countries* does Dayvi have hit tracks in?
 
-</prompt-expandable>
-
-
-<prompt-expandable header="How many *countries* does Dayvi have hit tracks in?">
-
-<q-multiple-choice>
-  <q-opt text="1"><span>Incorrect.</span></q-opt>
-  <q-opt text="2"><span>That's right.</span></q-opt>
-  <q-opt text="3"><span>Incorrect.</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
+<details><summary>1</summary>Incorrect.</details>
+<details><summary>2</summary>That's right.</details>
+<details><summary>3</summary>Incorrect.</details>
