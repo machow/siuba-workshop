@@ -1,6 +1,9 @@
 project:
   type: website
 
+filters:
+  - scripts/hide_solutions.lua
+
 website:
   title: "siuba-workshop"
   navbar:
