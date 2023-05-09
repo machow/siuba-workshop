@@ -174,16 +174,12 @@ import CodeCellTemplater from '~/components/Cell/CodeCellTemplater.vue'
 
 </CodeCellTemplater>
 
-<prompt-expandable header="Which artist has a track in the second position on the United States charts?">
+Which artist has a track in the second position on the United States charts?
 
-<q-multiple-choice>
-  <q-opt text="Roddy Ricch"><span>Try again. That artist is in the first position.</span></q-opt>
-  <q-opt text="Lil Uzi Vert"><span>That's right!</span></q-opt>
-  <q-opt text="Halsey"><span>Try again. That artist is the second from last position (198).</span></q-opt>
-</q-multiple-choice>
-
-</prompt-expandable>
-
+<details><summary>Roddy Ricch</summary>Try again. That artist is in the first position.</details>
+<details><summary>Lil Uzi Vert</summary>That's right!</details>
+<details><summary>Halsey</summary>Try again. That artist is the second from last position (198).</details>
+<details><summary>F, for their track in Hong Kong</summary>Incorrect. Did you sort by most streams first?</details> 
 
 ### Exercise 2: inspecting `track_features` data
 
