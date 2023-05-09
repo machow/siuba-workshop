@@ -23,7 +23,25 @@ website:
       title: Code
       style: floating
       align: left
-      contents: "code/*"
+      contents:
+        - code/01-intro-data-science.qmd
+        - section: "Ch 1: Wrangle"
+          contents:
+            - code/01b-filter.qmd
+            - code/01c-arrange.qmd
+            - code/01d-mutate.qmd
+            - code/01f-wrap-up.qmd
+        - section: "Ch 2: Visualize"
+          contents:
+            - code/02a-intro-data-viz.qmd
+            - code/02b-geoms.qmd
+            - code/02c-aesthetics.qmd
+            - code/02d-facets.qmd
+        - section: "Ch 3: Summarize"
+          contents:
+            - code/03a-summarize.qmd
+            - code/03b-group-by.qmd
+            - code/03c-summary-viz.qmd
 
 
 format:
