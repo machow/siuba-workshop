@@ -6,17 +6,48 @@ jupyter:
     name: python3
 ---
 
-## Siuba workshop
+## Workshop: Introduction to Siuba (PyData NYC 2023)
 
-## Who is this workshop for?
+siuba is an data analysis library that makes data science faster.
+It provides a simple, consistent interface that handles messy, real-life data.
 
-## Learning objectives
+In this workshop, you'll explore data on the top music tracks on Spotify.
+We'll cover the 5 key siuba functions that allow you to answer many questions about
+the popularity of artists in different countries, along with different features in their music.
+
+Throughout the workshop, we'll use plotnine to graph the data.
+
+## Who the heck is teaching?
+
+:::: {.columns}
+
+::: {.column}
+![](./assets/michael.jpg)
+
+**Michael Chow** works on python tools for the open source team at Posit, PBC (formerly RStudio). He has a PhD in cognitive psycholgy, and maintains [siuba](https://siuba.org/).
+:::
+
+::: {.column}
+![](./assets/charlie6.jpg)
+
+**Charlie Costanzo TODO a nice blurb**.
+:::
+
+::::
+
+## Outline
+
+* (set up): using github codespaces
+* data wrangling: filter, arrange, mutate
+* visualization: plotnine basics
+* grouping and summarizing data
+* additional plot types
+
+## Requirements
+
+You should have some familiarity with Python.
+Some experience with pandas will be useful, but is not necessary!
 
 ## Preperation
 
-## Slides
-
-## Code
-
-## Instructors
-
+## Using this site

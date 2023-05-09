@@ -8,19 +8,20 @@ website:
   title: "siuba-workshop"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - sidebar:slides
-      - sidebar:code
+      - sidebar:lessons
+      - text: "Help"
+        menu: 
+          - help/setup.qmd
+          - help/faq.qmd
+    tools:
+      - icon: github
+        href: https://github.com/machow/siuba-workshop
+
 
   sidebar:
-    - id: slides
-      title: Slides
-      style: floating
-      align: left
-      contents: "slides/*"
-    - id: code
-      title: Code
+    - id: dummy
+    - id: lessons
+      title: Lessons
       style: floating
       align: left
       contents:
@@ -49,6 +50,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-
