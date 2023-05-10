@@ -536,13 +536,13 @@
     "href": "index.html#preparation",
     "title": "Workshop: Introduction to Siuba (PyData NYC 2023)",
     "section": "Preparation",
-    "text": "Preparation"
+    "text": "Preparation\nWe’ll walk you through these steps:\n\nSetting up github codespaces\nUsing jupyter lab"
   },
   {
     "objectID": "index.html#using-this-site",
     "href": "index.html#using-this-site",
     "title": "Workshop: Introduction to Siuba (PyData NYC 2023)",
     "section": "Using this site",
-    "text": "Using this site\nall slides"
+    "text": "Using this site\nThe content for this workshop is broken into about 12 lessons. Each lesson contains slides, followed by exercises.\nYou can also view all the slides together."
   }
 ]
