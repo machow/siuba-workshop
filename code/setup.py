@@ -5,7 +5,7 @@ from siuba import *
 # plotting ----------
 from plotnine import *
 
-theme_set(theme_classic(base_family = "Noto Sans CJK JP"))
+#theme_set(theme_classic(base_family = "Noto Sans CJK JP"))
 
 # data --------------
 from music_top200 import music_top200
