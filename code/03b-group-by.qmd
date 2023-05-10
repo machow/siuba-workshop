@@ -20,8 +20,12 @@ jupyter:
 Click [here](../slides/03b-slides.qmd-slides.qmd) to open the slides full screen.
 
 ```{python}
-from setup import *
-from setup import ___, _
+from setup import ___
+
+from siuba import *
+from plotnine import *
+
+from music_top200 import music_top200, track_features
 ```
 
 
@@ -50,6 +54,7 @@ Make a scatterplot of the data.
 ```
 
 ```{python}
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 artists = (track_features
   >> group_by(_.artist)
@@ -119,6 +124,7 @@ Now you should be able to answer the question more directly!
 ```
 
 ```{python}
+#| jupyter: {source_hidden: true}
 #| tags: [solution-code]
 # This code plots the data ----
 (some_artists

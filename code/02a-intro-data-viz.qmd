@@ -20,8 +20,12 @@ jupyter:
 Click [here](../slides/02-slides.qmd) to open the slides full screen.
 
 ```{python}
-from setup import *
-from setup import ___, _
+from setup import ___
+
+from siuba import *
+from plotnine import *
+
+from music_top200 import music_top200, track_features
 ```
 
 

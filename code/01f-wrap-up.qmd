@@ -13,11 +13,6 @@ jupyter:
     name: python3
 ---
 
-```{python}
-from setup import *
-from setup import ___, _
-```
-
 ### Putting it together
 
 This lesson shows what the beginning of an analysis might look like. Generally, data analysis is done in **notebooks**, like this one. In a notebook, you can alternate between blocks of code and narrative text.
@@ -27,6 +22,9 @@ The first part of an analysis is often **importing** tools you will need for the
 The imports for this analysis are shown below.
 
 ```{python}
+# this is a special object, we use for blanks in exercises!
+from setup import ___
+
 # here we import verbs like filter, arrange, and mutate from siuba.
 # the import * means to import all of siuba's verbs.
 from siuba import *

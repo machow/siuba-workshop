@@ -25,6 +25,16 @@ jupyter:
     name: python3
 ---
 
+# Resources
+
+* [Workshop homepage](https://machow.github.io/siuba-workshop/)
+* [Workshop repo (machow/siuba-workshop)](https://github.com/machow/siuba-workshop)
+* [Live notes (Notion doc)](https://machow.notion.site/PyData-NYC-workshop-live-notes-068483dc097043aab0c1b8f5eb630451)
+* [siuba docs](https://siuba.org/)
+* [plotnine docs](https://plotnine.readthedocs.io/en/stable/)
+
+
+
 {{< include 00-slides.qmd >}}
 
 {{< include 01b-slides.qmd >}}
