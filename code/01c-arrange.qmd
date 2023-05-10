@@ -1,13 +1,7 @@
 ---
 title: Arrange
-output: html_document
-editor_options:
-  chunk_output_type: console
-chunk: wrangle
 jupyter:
   jupytext:
-    cell_metadata_filter: 'name,tags,-all'
-    notebook_metadata_filter: purview
     text_representation:
       extension: .qmd
       format_name: quarto

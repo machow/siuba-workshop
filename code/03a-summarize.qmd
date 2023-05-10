@@ -19,15 +19,19 @@ jupyter:
     name: python3
 ---
 
+
+```{=html}
+<iframe class="slide-deck" src="../slides/03a-slides.html"></iframe>
+```
+
+Click [here](../slides/03a-slides.qmd) to open the slides full screen.
+
+
 ```{python}
 from setup import *
 from setup import ___, _
 ```
 
-
-import slides from '../slides/03a-slides.markdown'
-
-<RevealSlides :slides="slides" />
 
 ### Exercise 1:
 

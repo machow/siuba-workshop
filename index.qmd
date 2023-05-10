@@ -51,3 +51,5 @@ Some experience with pandas will be useful, but is not necessary!
 ## Preparation
 
 ## Using this site
+
+[all slides](slides/all-slides.qmd)

@@ -1,13 +1,7 @@
 ---
 title: Group by
-output: html_document
-editor_options:
-  chunk_output_type: console
-chunk: summarize
 jupyter:
   jupytext:
-    cell_metadata_filter: 'name,tags,-all'
-    notebook_metadata_filter: purview
     text_representation:
       extension: .qmd
       format_name: quarto
@@ -19,15 +13,17 @@ jupyter:
     name: python3
 ---
 
+```{=html}
+<iframe class="slide-deck" src="../slides/03b-slides.html"></iframe>
+```
+
+Click [here](../slides/03b-slides.qmd-slides.qmd) to open the slides full screen.
+
 ```{python}
 from setup import *
 from setup import ___, _
 ```
 
-
-import slides from '../slides/03b-slides.markdown'
-
-<RevealSlides :slides="slides" />
 
 ### Exercise 1:
 

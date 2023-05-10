@@ -15,6 +15,8 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
+# The group_by verb
+
 :::{.notes}
 In the last lesson, you used the summarize verb to calculate an average either,
 
@@ -25,7 +27,6 @@ In this lesson you'll learn the group_by verb, which opens up a new option for c
 
 * within each country
 :::
-
 
 # The group_by verb
 

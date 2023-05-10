@@ -24,6 +24,7 @@ jupyter:
 * plot text instead
 * labs?
 
+# Faceting {.custom-title}
 
 :::{.notes}
 You've learned to use color in your scatterplots.
@@ -33,6 +34,7 @@ plotnine lets you divide your plot into subplots to get one smaller graph for ea
 
 This is called faceting, and it's another powerful way to communicate relationships within your data.
 :::
+
 
 # Faceting
 

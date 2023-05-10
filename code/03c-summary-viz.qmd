@@ -1,13 +1,7 @@
 ---
 title: Visualizing summaries
-output: html_document
-editor_options:
-  chunk_output_type: console
-chunk: summarize
 jupyter:
   jupytext:
-    cell_metadata_filter: 'name,tags,-all'
-    notebook_metadata_filter: purview
     text_representation:
       extension: .qmd
       format_name: quarto
@@ -18,6 +12,14 @@ jupyter:
     language: python
     name: python3
 ---
+
+
+```{=html}
+<iframe class="slide-deck" src="../slides/03c-slides.html"></iframe>
+```
+
+Click [here](../slides/03c-slides.qmd) to open the slides full screen.
+
 
 ```{python}
 from setup import *

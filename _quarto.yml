@@ -13,6 +13,8 @@ website:
         menu: 
           - help/setup.qmd
           - help/faq.qmd
+      - text: Slides
+        href: slides/all-slides.qmd
     tools:
       - icon: github
         href: https://github.com/machow/siuba-workshop

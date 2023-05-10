@@ -1,13 +1,7 @@
 ---
 title: Getting started
-output: html_document
-editor_options:
-  chunk_output_type: console
-chunk: visualize
 jupyter:
   jupytext:
-    cell_metadata_filter: 'name,tags,-all'
-    notebook_metadata_filter: purview
     text_representation:
       extension: .qmd
       format_name: quarto
@@ -30,9 +24,6 @@ from setup import *
 from setup import ___, _
 ```
 
-import slides from '../slides/02-slides.markdown'
-
-<RevealSlides :slides="slides" />
 
 ### Exercise 1: 
 
@@ -78,6 +69,13 @@ Who has the widest range of danceability? (i.e. biggist difference between highe
 
 ```{python}
 #| tags: [solution-code]
+
+# Note that this code use a special pandas function to put all
+# the data together into a single variable (all_together), to
+# make it easy to see all the data together.
+# To answer the question, you should replace all_together, with
+# the relevant variable (billie, other, etc..)
+
 import pandas as pd
 all_together = pd.concat([roddy, billie, other])
 

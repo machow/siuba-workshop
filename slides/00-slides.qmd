@@ -22,7 +22,11 @@ jupyter:
     name: python3
 ---
 
-::: {.notes}
+{{< include _setup.qmd >}}
+
+# Introduction to siuba {.custom-title}
+
+:::{.notes}
 Hi, I'm Michael--the creator of siuba, a library for data analysis in Python.
 
 In this course, you'll use Python to explore and visualize data.
@@ -31,7 +35,6 @@ The course is designed for people who have never programmed before,
 and anyone interested in siuba!
 :::
 
-{{< include _setup.qmd >}}
 
 # Data Analysis
 
@@ -79,6 +82,7 @@ music_top200
 ```
 
 ```{python}
+#| echo: false
 #| tags: [hide-input]
 from IPython.display import HTML
 
@@ -230,7 +234,7 @@ So in this case each point is a track by The Weeknd.
 
 # Let's practice!
 
-<video width="500" data-autoplay loop controls src="./siuba-intro-controls-500px.mp4" />
+* [Workshop setup instructions](/help/setup.html)
 
 ::: {.notes}
 For the practice below, you'll get to explore the two datasets by testing out different options.

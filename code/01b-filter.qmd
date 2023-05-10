@@ -1,13 +1,7 @@
 ---
 title: Filter
-output: html_document
-editor_options:
-  chunk_output_type: console
-chunk: wrangle
 jupyter:
   jupytext:
-    cell_metadata_filter: 'name,tags,-all'
-    notebook_metadata_filter: purview
     text_representation:
       extension: .qmd
       format_name: quarto
@@ -30,9 +24,6 @@ from setup import *
 from setup import ___, _
 ```
 
-import slides from '../slides/01b-slides.markdown'
-
-<RevealSlides :slides="slides" />
 
 ### Exercise 1: 
 
@@ -88,7 +79,7 @@ Which artist is in position 5 in South Africa?
 
 ### Exercise 3:
 
-Find the top 5 songs in Hong Kong.
+Find the top 5 songs in the `country` Hong Kong.
 
 In the slides we discussed the `==` operator. Here is a longer list of some options!
 
@@ -114,7 +105,7 @@ In the slides we discussed the `==` operator. Here is a longer list of some opti
 
 ### Exercise 4: looking at The Weeknd's streams
 
-How many times has The Weeknd had over 1,000,000 streams?
+How many times has the artist The Weeknd had over 1,000,000 streams?
 
 <details>
     <summary>Hint:</summary>

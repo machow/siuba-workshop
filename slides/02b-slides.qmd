@@ -16,8 +16,12 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
+# Using plotnine geoms {.custom-title}
+
+# Using plotnine geoms
 
 ```{python}
+#| echo: false
 #| tags: [hide-input]
 billie = filter(track_features, _.artist == "Billie Eilish")
 ```
@@ -113,6 +117,9 @@ Here are two useful parts of the docs:
 :::
 
 # Let's practice!
+
+* [plotnine docs](https://plotnine.readthedocs.io/)
+* [geom_text() API page](https://plotnine.readthedocs.io/en/stable/generated/plotnine.geoms.geom_text.html)
 
 :::{.notes}
 In the exercises, you'll practice creating other scatter plots to compare variables across

@@ -15,13 +15,7 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
-* filter artist, get characteristics
-* try different combinations of characteristics--which ones seem most related?
-* diagnose error (unquoted ggplot)
-* diagnose error (verb without _)
-* plot with aesthetics
-* plot text instead
-* labs?
+# Using plotnine Aesthetics {.custom-title}
 
 
 :::{.notes}

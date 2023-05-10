@@ -1,34 +1,8 @@
 ---
 title: Geoms
-output: html_document
-editor_options:
-  chunk_output_type: console
 chunk: visualize
-exercise_pars:
-  - size:
-      label: Size
-      options:
-        - 11
-        - 5
-        - 7
-        - 14
-    ha:
-      label: Horizontal align
-      options:
-        - center
-        - left
-        - right
-    nudge:
-      label: Nudge
-      options:
-        - nudge_y = 0
-        - nudge_y = .05
-        - nudge_y = -.05
-        - nudge_x = .05
 jupyter:
   jupytext:
-    cell_metadata_filter: 'name,tags,-all'
-    notebook_metadata_filter: purview
     text_representation:
       extension: .qmd
       format_name: quarto
@@ -40,42 +14,40 @@ jupyter:
     name: python3
 ---
 
+```{=html}
+<iframe class="slide-deck" src="../slides/02b-slides.html"></iframe>
+```
+
+Click [here](../slides/02b-slides.qmd) to open the slides full screen.
+
+
 ```{python}
 from setup import *
 from setup import ___, _
 ```
 
-import slides from '../slides/02b-slides.markdown'
-
-<RevealSlides :slides="slides" />
-
 ### Exercise 1:
 
-The options below let you change different arguments to `geom_text()`. Try changing them and running the code, in order to get a readable plot. Then, answer the questions underneath the plot.
+The code below uses `geom_text()`. Try changing options and then re-running the code, in order to get a readable plot. Then, answer the questions underneath the plot.
 
+**Options to set:**
 
-import CodeCellTemplater from '~/components/Cell/CodeCellTemplater.vue'
+* Change `size = 11` to `size = 5`. Try out sizes 7 and 14.
+* Change horizontal align from `ha = "center"` to `ha = "left"`.
+  - How about `"right"`?
+* Change nudge from `nudge_y = 0` to `nudge_y = .05`, or `nudge_x = .05`.
+  - What about `-.05`?
 
-<CodeCellTemplater
-    :templateVars="$frontmatter.exercise_pars[0]"
-    :status="nb.status" :onExecute="nb.execute" language="python"
-    >
+**Code**
 
-    (track_features
-      >> filter(_.artist == "Queen")
-      >> ggplot(aes("energy", "valence", label = "track_name"))
-       + geom_point()
-       + geom_text(size = ${this.size}, ha = "${this.ha}", ${this.nudge})
-    )    
-    
-<template v-slot:output>
-
-![](../assets/02b-queen-plot.png)
-
-
-</template>    
-
-</CodeCellTemplater>
+```{python}
+(track_features
+  >> filter(_.artist == "Queen")
+  >> ggplot(aes("energy", "valence", label = "track_name"))
+    + geom_point()
+    + geom_text(size = 11, ha = "center", nudge_y = 0)
+)
+```
 
 
 <p>Below are three songs at different corners of the graph. Can you tell whether they have high or low energy? Valence? Which do you think has low energy and low valence?</p>

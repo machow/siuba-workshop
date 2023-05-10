@@ -15,10 +15,7 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
-# The arrange verb
-
-![](model-arrange.png)
-
+# The arrange verb {.custom-title}
 
 :::{.notes}
 In the last video you learned the filter verb, for extracting a subset of your observations based on a condition.
@@ -30,10 +27,14 @@ Arrange sorts the observations in a dataset, in ascending or descending order ba
 This is useful, for example, when you want to know the most extreme values in a dataset.
 :::
 
+# The arrange verb
+
+![](model-arrange.png)
+
+
 # Sorting with arrange
 
 ```{python}
-#| echo: true
 (music_top200
   >> arrange(_.duration)
 )
@@ -56,7 +57,6 @@ Just like with filter, the music object itself is unchanged: arrange is just giv
 # arrange descending
 
 ```{python}
-#| echo: true
 (music_top200
   >> arrange(-_.duration)
 )
@@ -74,7 +74,6 @@ However, we might be interested in looking at duration within a specific country
 # arrange and filter
 
 ```{python}
-#| echo: true
 (music_top200
   >> filter(_.country == "United States")
   >> arrange(-_.duration)
@@ -90,7 +89,6 @@ To do that, you can combine the two verbs you've already learned: filter, and ar
 ## arrange and filter
 
 ```{python}
-#| echo: true
 (music_top200
   >> filter(_.country == "United States")
 
@@ -109,7 +107,6 @@ Then you use another pipe step.
 ## arrange and filter
 
 ```{python}
-#| echo: true
 (music_top200
   >> filter(_.country == "United States")
   >> arrange(-_.duration)
@@ -126,7 +123,6 @@ You specify that you want to sort in descending order of duration.
 # arrange and filter
 
 ```{python}
-#| echo: true
 (music_top200
   >> filter(_.country == "United States")
   >> arrange(-_.duration)
@@ -144,3 +140,6 @@ multiple simple operations to create a rich and informative data analysis.
 :::
 
 # Let's practice!
+
+* [siuba guide - arrange](https://siuba.org/guide/verb-arrange.html)
+* [siuba api - arrange](https://siuba.org/api/arrange.html)

@@ -15,8 +15,9 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
+# The filter verb {.custom-title}
 
-::: {.notes}
+:::{.notes}
 Now that you've seen some code in action on the music data, we'll focus on writing your own code.
 
 In this chapter, you'll learn about the "verbs" in the siuba package. The first verb you'll use is filter.
@@ -161,6 +162,9 @@ You'll be able to practice this in the exercises.
 :::
 
 # Let's practice!
+
+* [siuba guide - filter](https://siuba.org/guide/verb-filter.html)
+* [siuba api - filter](https://siuba.org/api/filter.html)
 
 ::: {.notes}
 Scroll down to investigate the music data with filter.

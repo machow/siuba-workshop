@@ -17,6 +17,7 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
+# Visualization with plotnine {.custom-title}
 
 :::{.notes}
 In the last chapter, you used siuba to answer some questions about the music_top200 dataset.
@@ -32,6 +33,7 @@ Often a better way to understand and present this kind of data is as a graph.
 
 In this chapter, you'll learn the essential skill of data visualization using the plotnine package.
 :::
+
 
 # Visualizing with plotnine
 

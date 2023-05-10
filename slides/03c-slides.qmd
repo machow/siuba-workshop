@@ -15,6 +15,8 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
+# Visualizing summarized data {.custom-title}
+
 :::{.notes}
 In this chapter you learned to use the group by and summarize verbs to summarize the music_top200 data
 by year, by continent, or by both.
@@ -22,7 +24,6 @@ by year, by continent, or by both.
 Now you'll learn how to turn those summaries into informative
 visualizations, by returning to the plotnine package from Chapter 2.
 :::
-
 
 # When visualizing raw data doesn't work
 
@@ -114,6 +115,7 @@ It's hard to get a a sense of how many streams the last position track had, sinc
    + labs(title = "Top 200 hits - max streams overall"))</code></pre>
 
 ```{python}
+#| echo: false
 #| tags: [hide-input]
 (by_position
   >> ggplot(aes("position", "max_streams"))

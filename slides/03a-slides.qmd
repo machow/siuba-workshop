@@ -15,6 +15,8 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
+# Summarizing data {.custom-title}
+
 
 :::{.notes}
 In this chapter, you'll return to the topic of data transformation with siuba to learn more ways to explore your data.
@@ -80,6 +82,7 @@ In the output, we see the answer to our question: mean (or average) duration was
 )</code></pre>
 
 ```{python}
+#| echo: false
 #| tags: [hide-input]
 (music_top200
   >> summarize(avg_duration = _.duration.mean())

@@ -15,8 +15,7 @@ jupyter:
 
 {{< include _setup.qmd >}}
 
-![](model-mutate.png)
-
+# The mutate verb {.custom-title}
 
 :::{.notes}
 You've already learned two verbs for manipulating data: filter for
@@ -27,6 +26,11 @@ Or suppose you want to add a new variable.
 
 For that, you would use the mutate verb.
 :::
+
+# The mutate verb
+
+![](model-mutate.png)
+
 
 # Using mutate to change a variable
 
@@ -119,6 +123,7 @@ The asterisk in Python represents multiplication, so you write streams asterisk 
 </code></pre>
 
 ```{python}
+#| echo: false
 #| tags: [hide-input]
 (music_top200
   >> mutate(ttl_stream_time = _.streams * _.duration)
@@ -218,3 +223,6 @@ However, it looks like the track normally in the 23rd position--René by Residen
 :::
 
 # Let's practice!
+
+* [siuba guide - mutate](https://siuba.org/guide/verb-mutate.html)
+* [siuba api - mutate](https://siuba.org/api/mutate.html)

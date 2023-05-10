@@ -1,9 +1,7 @@
 -- this pandoc lua filter finds divs with an attribute
 -- called data-tags="["solution-code"]
 function Div(el)
-  print("Running filter")
-  print(quarto.utils.dump(el))
-  print(el.attributes)
+  -- print(quarto.utils.dump(el))
 
   local tags = el.attributes["tags"]
 

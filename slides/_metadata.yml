@@ -1,8 +1,10 @@
+execute:
+  echo: true
 format:
   revealjs:
     slide-number: true
     controls: true
-    navigation-mode: vertical
+    navigation-mode: linear
     controls-layout: bottom-right
     width: 650
     height: 600
