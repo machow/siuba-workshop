@@ -8,7 +8,7 @@ jupyter:
 
 ## Workshop: Introduction to Siuba (PyData NYC 2023)
 
-siuba is an data analysis library that makes data science faster.
+siuba is a data analysis library that makes data science faster.
 It provides a simple, consistent interface that handles messy, real-life data.
 
 In this workshop, you'll explore data on the top music tracks on Spotify.
@@ -30,7 +30,7 @@ Throughout the workshop, we'll use plotnine to graph the data.
 ::: {.column}
 ![](./assets/charlie6.jpg)
 
-**Charlie Costanzo TODO a nice blurb**.
+**Charlie Costanzo** works primarily as an analytics engineer on public transportation and other civic technology projects (that also use [siuba!](https://siuba.org/))
 :::
 
 ::::
