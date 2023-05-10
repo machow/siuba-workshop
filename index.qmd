@@ -30,7 +30,7 @@ Throughout the workshop, we'll use plotnine to graph the data.
 ::: {.column}
 ![](./assets/charlie6.jpg)
 
-**Charlie Costanzo TODO a nice blurb**.
+**Charlie Costanzo** works primarily as an analytics engineer on public transportation and other civic technology projects (that also use siuba!)
 :::
 
 ::::

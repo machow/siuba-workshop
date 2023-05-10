@@ -2,16 +2,54 @@
 title: Setup
 ---
 
-## Open github codespace
+## Open the Workshop in a GitHub Codespace
 
-* step by step
+* Navigate to the [GitHub repository for the workshop](https://github.com/machow/siuba-workshop), click the `< > Code` dropdown, and select `Create codespace on main`
 
-## Use jupyter lab
+![](/assets/setup/codespaces-dropdown.png)
 
-* opening lesson
-* running code
-* expanding solution
-* explain multiple choice
+* Your codespace will initialize. Once done, you'll get dropped into a browser version of VS Code. Stay on this page until you see that the terminal has finished installing `requirements.txt`
+
+![](/assets/setup/requirements-install.png)
+
+* Once that's finished, exit VS Code and [return to the GitHub repository for the workshop](https://github.com/machow/siuba-workshop)
+
+* Click back into the `< > Code` dropdown, find the codespace that you just created, and click on the three dots next to it. Click `Open in ...` and select `Open in JupyterLab`
+
+::: {layout-ncol=3}
+![](/assets/setup/column-1.png)
+
+![](/assets/setup/column-2.png)
+
+![](/assets/setup/column-3.png)
+:::
+
+
+## Use JupyterLab for the Code Exercises
+
+* Once dropped in JupyterLab you'll see a file browser to the left. To open the interactive exercises as notebooks, navigate to the `Code` folder.
+
+![](/assets/setup/code-folder.png)
+
+* To open a lesson, right click on the file and select `Open With` --> `Notebook`
+
+![](/assets/setup/open-as-notebook.png)
+
+* From here, you can interact with and run the code cells. To run a code cell, click the cell and then the `Run` button at the top of the file (or click `ctrl` + `enter`). Start by running the import cell at the top of the file.
+
+![](/assets/setup/run-cell.png)
+
+* Throughout the notebook you will see cells with prompts to complete a query. You can see their solutions by clicking on the three dots below the prompt cell.
+
+![](/assets/setup/show-solution.png)
+
+* Throughout the notebooks you will also see multiple choice questions related to the data exercises. You can see their solutions by clicking on the toggle next to them.
+
+![](/assets/setup/multiple-choice.png)
+
+
+
+**keep everything below?**
 * table of contents
 * a little background on quarto
 
