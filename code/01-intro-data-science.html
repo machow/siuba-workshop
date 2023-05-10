@@ -92,6 +92,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -190,6 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/all-slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
     <a href="https://github.com/machow/siuba-workshop" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -363,230 +370,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="exercise-1-inspecting-music-data" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1-inspecting-music-data">Exercise 1: inspecting music data</h3>
-<p>Use the dropdown box below to change the code. Try choosing “United States” from the dropdown, then click run. This should return only the top 200 hits from the United States.</p>
-<p>import CodeCellTemplater from ‘~/components/Cell/CodeCellTemplater.vue’</p>
-<p>&lt;CodeCellTemplater :templateVars=“$frontmatter.exercise_pars[0]” :status=“nb.status” :onExecute=“nb.execute” language=“python” &gt;</p>
-<pre><code>(music_top200
-  &gt;&gt; filter(_.country == "${this.country}")
-)</code></pre>
-<template v-slot:output="">
-
-<table border="1" class="dataframe dataframe">
+<p>Try changing to “United States”. This should return only the top 200 hits from the United States.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(music_top200</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Mexico"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-country
-</th>
-<th>
-position
-</th>
-<th>
-track_name
-</th>
-<th>
-artist
-</th>
-<th>
-streams
-</th>
-<th>
-duration
-</th>
-<th>
-continent
-</th>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">position</th>
+<th data-quarto-table-cell-role="th">track_name</th>
+<th data-quarto-table-cell-role="th">artist</th>
+<th data-quarto-table-cell-role="th">streams</th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">continent</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<th>
-7800
-</th>
-<td>
-United States
-</td>
-<td>
-1
-</td>
-<td>
-The Box
-</td>
-<td>
-Roddy Ricch
-</td>
-<td>
-12987027
-</td>
-<td>
-196.653
-</td>
-<td>
-Americas
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8200</td>
+<td>Mexico</td>
+<td>1</td>
+<td>Safaera</td>
+<td>Bad Bunny</td>
+<td>7948565</td>
+<td>295.177</td>
+<td>Americas</td>
 </tr>
-<tr>
-<th>
-7801
-</th>
-<td>
-United States
-</td>
-<td>
-2
-</td>
-<td>
-Myron
-</td>
-<td>
-Lil Uzi Vert
-</td>
-<td>
-9163134
-</td>
-<td>
-224.955
-</td>
-<td>
-Americas
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8201</td>
+<td>Mexico</td>
+<td>2</td>
+<td>Si Veo a Tu Mamá</td>
+<td>Bad Bunny</td>
+<td>7535381</td>
+<td>170.972</td>
+<td>Americas</td>
 </tr>
-<tr>
-<th>
-7802
-</th>
-<td>
-United States
-</td>
-<td>
-3
-</td>
-<td>
-Blueberry Faygo
-</td>
-<td>
-Lil Mosey
-</td>
-<td>
-8043475
-</td>
-<td>
-162.547
-</td>
-<td>
-Americas
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8202</td>
+<td>Mexico</td>
+<td>3</td>
+<td>La Difícil</td>
+<td>Bad Bunny</td>
+<td>5459673</td>
+<td>163.084</td>
+<td>Americas</td>
 </tr>
-<tr>
-<th>
-…
-</th>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
 </tr>
-<tr>
-<th>
-7997
-</th>
-<td>
-United States
-</td>
-<td>
-198
-</td>
-<td>
-Lights Up
-</td>
-<td>
-Harry Styles
-</td>
-<td>
-1606234
-</td>
-<td>
-172.227
-</td>
-<td>
-Americas
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8397</td>
+<td>Mexico</td>
+<td>198</td>
+<td>Vete Ya</td>
+<td>Valentín Elizalde</td>
+<td>559399</td>
+<td>157.760</td>
+<td>Americas</td>
 </tr>
-<tr>
-<th>
-7998
-</th>
-<td>
-United States
-</td>
-<td>
-199
-</td>
-<td>
-Without Me
-</td>
-<td>
-Halsey
-</td>
-<td>
-1606153
-</td>
-<td>
-201.661
-</td>
-<td>
-Americas
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8398</td>
+<td>Mexico</td>
+<td>199</td>
+<td>El Mundo a Tus Pies</td>
+<td>Grupo Firme</td>
+<td>559065</td>
+<td>176.227</td>
+<td>Americas</td>
 </tr>
-<tr>
-<th>
-7999
-</th>
-<td>
-United States
-</td>
-<td>
-200
-</td>
-<td>
-Enemies (feat. DaBaby)
-</td>
-<td>
-Post Malone
-</td>
-<td>
-1597824
-</td>
-<td>
-196.760
-</td>
-<td>
-Americas
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8399</td>
+<td>Mexico</td>
+<td>200</td>
+<td>Verte Ir</td>
+<td>DJ Luian</td>
+<td>558925</td>
+<td>267.500</td>
+<td>Americas</td>
 </tr>
 </tbody>
-
 </table>
-<p></p></template><p></p>
-<p></p>
+
+<p>200 rows × 7 columns</p>
+</div>
+</div>
 <p>Which artist has a track in the second position on the United States charts?</p>
 <details>
 <summary>
@@ -610,333 +489,574 @@ Try again. That artist is the second from last position (198).
 <section id="exercise-2-inspecting-track_features-data" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2-inspecting-track_features-data">Exercise 2: inspecting <code>track_features</code> data</h3>
 <p>Use the options below, to examine tracks by different artists. Can you find the options that order tracks from highest energy to lowest?</p>
-<p>&lt;CodeCellTemplater :templateVars=“$frontmatter.exercise_pars[1]” :status=“nb.status” :onExecute=“nb.execute” language=“python” &gt;</p>
-<pre><code>(track_features
-  &gt;&gt; arrange(${this.arrangeVar})
-  &gt;&gt; filter(_.artist == "${this.artist}")
-)</code></pre>
-<p><template v-slot:output="">
-
-<table border="1" class="dataframe dataframe">
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Weeknd</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad Bunny</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Roddy Ricch</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Justin Bieber</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#_.popularity</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#-_.popularity</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#_.energy</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#-_.energy</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.popularity)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"The Weeknd"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-artist
-</th>
-<th>
-album
-</th>
-<th>
-track_name
-</th>
-<th>
-energy
-</th>
-<th>
-valence
-</th>
-<th>
-danceability
-</th>
-<th>
-speechiness
-</th>
-<th>
-acousticness
-</th>
-<th>
-popularity
-</th>
-<th>
-duration
-</th>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">artist</th>
+<th data-quarto-table-cell-role="th">album</th>
+<th data-quarto-table-cell-role="th">track_name</th>
+<th data-quarto-table-cell-role="th">energy</th>
+<th data-quarto-table-cell-role="th">valence</th>
+<th data-quarto-table-cell-role="th">danceability</th>
+<th data-quarto-table-cell-role="th">speechiness</th>
+<th data-quarto-table-cell-role="th">acousticness</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">duration</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<th>
-22431
-</th>
-<td>
-The Weeknd
-</td>
-<td>
-After Hours (Deluxe)
-</td>
-<td>
-Missed You - Bonus Track
-</td>
-<td>
-0.364
-</td>
-<td>
-0.4480
-</td>
-<td>
-0.716
-</td>
-<td>
-0.0866
-</td>
-<td>
-0.10700
-</td>
-<td>
-48
-</td>
-<td>
-144.540
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24982</td>
+<td>The Weeknd</td>
+<td>After Hours</td>
+<td>In Your Eyes</td>
+<td>0.719</td>
+<td>0.7170</td>
+<td>0.667</td>
+<td>0.0346</td>
+<td>0.00285</td>
+<td>91</td>
+<td>237.520</td>
 </tr>
-<tr>
-<th>
-3889
-</th>
-<td>
-The Weeknd
-</td>
-<td>
-After Hours (Deluxe)
-</td>
-<td>
-Nothing Compares - Bonus Track
-</td>
-<td>
-0.577
-</td>
-<td>
-0.0398
-</td>
-<td>
-0.524
-</td>
-<td>
-0.0358
-</td>
-<td>
-0.00253
-</td>
-<td>
-49
-</td>
-<td>
-222.307
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9283</td>
+<td>The Weeknd</td>
+<td>After Hours</td>
+<td>After Hours</td>
+<td>0.572</td>
+<td>0.1430</td>
+<td>0.664</td>
+<td>0.0305</td>
+<td>0.08110</td>
+<td>84</td>
+<td>361.027</td>
 </tr>
-<tr>
-<th>
-17384
-</th>
-<td>
-The Weeknd
-</td>
-<td>
-Heartless
-</td>
-<td>
-Heartless
-</td>
-<td>
-0.750
-</td>
-<td>
-0.1980
-</td>
-<td>
-0.531
-</td>
-<td>
-0.1110
-</td>
-<td>
-0.00632
-</td>
-<td>
-60
-</td>
-<td>
-200.080
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24688</td>
+<td>The Weeknd</td>
+<td>Starboy</td>
+<td>Starboy</td>
+<td>0.587</td>
+<td>0.4860</td>
+<td>0.679</td>
+<td>0.2760</td>
+<td>0.14100</td>
+<td>84</td>
+<td>230.453</td>
 </tr>
-<tr>
-<th>
-…
-</th>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
-<td>
-…
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
 </tr>
-<tr>
-<th>
-9284
-</th>
-<td>
-The Weeknd
-</td>
-<td>
-After Hours
-</td>
-<td>
-After Hours
-</td>
-<td>
-0.572
-</td>
-<td>
-0.1430
-</td>
-<td>
-0.664
-</td>
-<td>
-0.0305
-</td>
-<td>
-0.08110
-</td>
-<td>
-84
-</td>
-<td>
-361.027
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17383</td>
+<td>The Weeknd</td>
+<td>Heartless</td>
+<td>Heartless</td>
+<td>0.750</td>
+<td>0.1980</td>
+<td>0.531</td>
+<td>0.1110</td>
+<td>0.00632</td>
+<td>60</td>
+<td>200.080</td>
 </tr>
-<tr>
-<th>
-24689
-</th>
-<td>
-The Weeknd
-</td>
-<td>
-Starboy
-</td>
-<td>
-Starboy
-</td>
-<td>
-0.587
-</td>
-<td>
-0.4860
-</td>
-<td>
-0.679
-</td>
-<td>
-0.2760
-</td>
-<td>
-0.14100
-</td>
-<td>
-84
-</td>
-<td>
-230.453
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3888</td>
+<td>The Weeknd</td>
+<td>After Hours (Deluxe)</td>
+<td>Nothing Compares - Bonus Track</td>
+<td>0.577</td>
+<td>0.0398</td>
+<td>0.524</td>
+<td>0.0358</td>
+<td>0.00253</td>
+<td>49</td>
+<td>222.307</td>
 </tr>
-<tr>
-<th>
-24983
-</th>
-<td>
-The Weeknd
-</td>
-<td>
-After Hours
-</td>
-<td>
-In Your Eyes
-</td>
-<td>
-0.719
-</td>
-<td>
-0.7170
-</td>
-<td>
-0.667
-</td>
-<td>
-0.0346
-</td>
-<td>
-0.00285
-</td>
-<td>
-91
-</td>
-<td>
-237.520
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22430</td>
+<td>The Weeknd</td>
+<td>After Hours (Deluxe)</td>
+<td>Missed You - Bonus Track</td>
+<td>0.364</td>
+<td>0.4480</td>
+<td>0.716</td>
+<td>0.0866</td>
+<td>0.10700</td>
+<td>48</td>
+<td>144.540</td>
 </tr>
 </tbody>
-
 </table>
-<p></p></template></p>
-<p></p>
+
+<p>23 rows × 10 columns</p>
+</div>
+</div>
 </section>
 <section id="exercise-3-plotting-track-features" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3-plotting-track-features">Exercise 3: Plotting track features</h3>
 <p>Here is one kind of plot you will learn to make in the course.</p>
-<p>Once you’ve tried some options, scroll down and click next to get started with the first chapter!</p>
-<p>&lt;CodeCellTemplater :templateVars=“$frontmatter.exercise_pars[2]” :status=“nb.status” :onExecute=“nb.execute” language=“python” &gt;</p>
-<pre><code>(track_features
-  &gt;&gt; filter(_.artist == "${this.artist}")
-  &gt;&gt; ggplot(aes("energy", "valence", size = "${this.size}", color = "album", label = "track_name"))
-   + geom_point()
-   + geom_text(nudge_y = .05, size = 10)
-)</code></pre>
-<p><template v-slot:output="">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="../build/01-example3-output.png" class="img-fluid"></p>
-<figcaption>png</figcaption>
-</figure>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#        - popularity</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        - acousticness</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        - danceability</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"The Weeknd"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, size <span class="op">=</span> <span class="st">"popularity"</span>, color <span class="op">=</span> <span class="st">"album"</span>, label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_point()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_text(nudge_y <span class="op">=</span> <span class="fl">.05</span>, size <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
 </div>
-<p></p></template></p>
-<p></p>
-<div class="cell" data-tags="[&quot;input-hide&quot;,&quot;hide-output&quot;]" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> (track_features</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"The Weeknd"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, size <span class="op">=</span> <span class="st">"popularity"</span>, color <span class="op">=</span> <span class="st">"album"</span>, label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_text(nudge_y <span class="op">=</span> <span class="fl">.05</span>, size <span class="op">=</span> <span class="dv">10</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>p.save(<span class="st">'../build/01-example3-output.png'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01-intro-data-science_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
 </div>
 
 

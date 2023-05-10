@@ -398,10 +398,9 @@
 </div>
 
 </section>
-<section class="slide level2">
-
-
-<img data-src="model-mutate.png" class="r-stretch"><aside class="notes">
+<section id="the-mutate-verb" class="title-slide slide level1 custom-title center">
+<h1>The mutate verb</h1>
+<aside class="notes">
 <p>You’ve already learned two verbs for manipulating data: filter for extracting a subset of the observations, and arrange for sorting them.</p>
 <p>Suppose you want to change one of the variables in your dataset, based on the other ones. Or suppose you want to add a new variable.</p>
 <p>For that, you would use the mutate verb.</p>
@@ -417,6 +416,12 @@
           display:block!important;
       }</style></aside>
 </section>
+
+<section id="the-mutate-verb-1" class="title-slide slide level1 center">
+<h1>The mutate verb</h1>
+
+<img data-src="model-mutate.png" class="r-stretch"></section>
+
 <section>
 <section id="using-mutate-to-change-a-variable" class="title-slide slide level1 center">
 <h1>Using mutate to change a variable</h1>
@@ -483,6 +488,9 @@
 <section id="using-mutate-to-change-a-variable-result" class="title-slide slide level1 center">
 <h1>Using mutate to change a variable (result)</h1>
 <div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>(music_top200</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="op">&gt;&gt;</span> mutate(streams <span class="op">=</span> _.streams <span class="op">/</span> <span class="dv">1000</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -594,6 +602,9 @@
 <section id="using-mutate-to-add-a-new-variable" class="title-slide slide level1 center">
 <h1>Using mutate to add a new variable</h1>
 <div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>(music_top200</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -838,11 +849,11 @@
 <section>
 <section id="answering-a-question" class="title-slide slide level1 center">
 <h1>Answering a question</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>(music_top200</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Costa Rica"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.ttl_stream_time)</span>
-<span id="cb2-5"><a href="#cb2-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>(music_top200</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Costa Rica"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.ttl_stream_time)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>Let’s put together the three verbs you learned in this chapter to answer a question about our data.</p>
 <p>Suppose we wanted to know for a country, like Costa Rica, what songs were listened to longest.</p>
@@ -868,6 +879,11 @@
 <section id="answering-a-question-1" class="slide level2">
 <h2>Answering a question</h2>
 <div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>(music_top200</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
+<span id="cb5-3"><a href="#cb5-3"></a> </span>
+<span id="cb5-4"><a href="#cb5-4"></a> </span>
+<span id="cb5-5"><a href="#cb5-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -984,6 +1000,11 @@
 <section id="answering-a-question-2" class="slide level2">
 <h2>Answering a question</h2>
 <div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>(music_top200</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Costa Rica"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a> </span>
+<span id="cb6-5"><a href="#cb6-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1100,6 +1121,11 @@
 <section id="answering-a-question-3" class="slide level2">
 <h2>Answering a question</h2>
 <div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>(music_top200</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Costa Rica"</span>) </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.ttl_stream_time) </span>
+<span id="cb7-5"><a href="#cb7-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1216,6 +1242,11 @@
 <section id="answering-a-question-result" class="title-slide slide level1 center">
 <h1>Answering a question (result)</h1>
 <div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>(music_top200</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="op">&gt;&gt;</span> mutate(ttl_stream_time <span class="op">=</span> _.streams <span class="op">*</span> _.duration)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Costa Rica"</span>) </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.ttl_stream_time) </span>
+<span id="cb8-5"><a href="#cb8-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1334,6 +1365,10 @@
 
 <section id="lets-practice" class="title-slide slide level1 center">
 <h1>Let’s practice!</h1>
+<ul>
+<li><a href="https://siuba.org/guide/verb-mutate.html">siuba guide - mutate</a></li>
+<li><a href="https://siuba.org/api/mutate.html">siuba api - mutate</a></li>
+</ul>
 
 <div class="footer footer-default">
 
@@ -1391,7 +1426,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'h.v',
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -1432,7 +1467,7 @@
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,

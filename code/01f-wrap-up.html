@@ -193,6 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/all-slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
     <a href="https://github.com/machow/siuba-workshop" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -367,7 +371,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This lesson shows what the beginning of an analysis might look like. Generally, data analysis is done in <strong>notebooks</strong>, like this one. In a notebook, you can alternate between blocks of code and narrative text.</p>
 <p>The first part of an analysis is often <strong>importing</strong> tools you will need for the analysis. For example, verbs like <code>filter</code> and <code>mutate</code> are imported from siuba.</p>
 <p>The imports for this analysis are shown below.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here we import verbs like filter, arrange, and mutate from siuba.</span></span>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here we import verbs like filter, arrange, and mutate from siuba.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the import * means to import all of siuba's verbs.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -378,6 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># note that rather than using * to get everything, you can name</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># specific things to import (like track_features)</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> music_top200 <span class="im">import</span> music_top200, track_features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1:</h3>
@@ -391,13 +397,13 @@ hint
 <p>First, find the artist in the top position in Spain. After, can you get only that artists tracks? Once you do that you should be close!</p>
 </blockquote>
 </details>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting most streamed track for top artist in Spain</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>()</code></pre>
 </div>
 </div>
@@ -421,7 +427,7 @@ Show solution
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"KAROL G"</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.streams)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
@@ -519,14 +525,14 @@ Show solution
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2:</h3>
 <p>Subset to keep only tracks in Hong Kong, then calculate a new column called stream_seconds, that’s equal to streams times their duration.</p>
 <p>Once you’ve done that, try deleting the comments (<code>#</code>) in the code below to plot the data.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(music_top200</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ___</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ___</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#&gt;&gt; ggplot(aes("stream_seconds", "position", color = "duration"))</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># + geom_point()</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="5">
 ⚠️: <b>Don't forget to replace all the blanks!</b>
 </div>
 </div>
@@ -613,7 +619,7 @@ findfont: Font family 'Noto Sans CJK JP' not found.
 findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01f-wrap-up_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+<p><img src="01f-wrap-up_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </div>

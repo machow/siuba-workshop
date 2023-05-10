@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -333,9 +398,20 @@
 </div>
 
 </section>
-<section class="slide level2">
+<section id="using-plotnine-geoms" class="title-slide slide level1 custom-title center">
+<h1>Using plotnine geoms</h1>
 
+</section>
 
+<section id="using-plotnine-geoms-1" class="title-slide slide level1 center">
+<h1>Using plotnine geoms</h1>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>(billie</span>
+<span id="cb1-2"><a href="#cb1-2"></a> <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="op">+</span> geom_point()</span>
+<span id="cb1-4"><a href="#cb1-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
 <img data-src="02b-slides_files/figure-revealjs/cell-4-output-1.png" class="r-stretch"><aside class="notes">
 <p>In the previous lesson, you created this scatter plot comparing the energy of each song to its valence.</p>
 <p>This plot communicates some interesting information: we can see that higher income countries tend to have higher life expectancy.</p>
@@ -352,9 +428,16 @@
           display:block!important;
       }</style></aside>
 </section>
+
 <section id="using-geom_label" class="title-slide slide level1 center">
 <h1>Using geom_label</h1>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>(billie</span>
+<span id="cb2-2"><a href="#cb2-2"></a> <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="op">+</span> geom_label()</span>
+<span id="cb2-4"><a href="#cb2-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02b-slides_files/figure-revealjs/cell-5-output-1.png" class="r-stretch"><aside class="notes">
 <p>The first option for plotting text is using <code>geom_label()</code>. This plots the text with a filled in box around it.</p>
 <p>Unlike scanning a DataFrame of results, it’s easy to see pick out songs across a range of valence and energy.</p>
@@ -379,7 +462,13 @@
 
 <section id="using-geom_text" class="title-slide slide level1 center">
 <h1>Using geom_text</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>(billie</span>
+<span id="cb3-2"><a href="#cb3-2"></a> <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="op">+</span> geom_text()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02b-slides_files/figure-revealjs/cell-6-output-1.png" class="r-stretch"><aside class="notes">
 <p>A second option for plotting text is with <code>geom_text()</code>. This plots text by itself, without a background box.</p>
 <p>Notice the words in front don’t cover other words as much, but it can also be harder to read them.</p>
@@ -398,7 +487,14 @@
 
 <section id="combining-geoms" class="title-slide slide level1 center">
 <h1>Combining geoms</h1>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>(billie</span>
+<span id="cb4-2"><a href="#cb4-2"></a> <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="op">+</span> geom_text(nudge_y <span class="op">=</span> <span class="fl">.1</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="op">+</span> geom_point()</span>
+<span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02b-slides_files/figure-revealjs/cell-7-output-1.png" class="r-stretch"><aside class="notes">
 <p>When you plot multiple geoms–like in this plot–ggplot goes line-by-line, from top to bottom.</p>
 <p>For example, in the code here, it first puts down the words from <code>geom_text()</code>, then the points from <code>geom_point()</code>.</p>
@@ -442,6 +538,10 @@
 
 <section id="lets-practice" class="title-slide slide level1 center">
 <h1>Let’s practice!</h1>
+<ul>
+<li><a href="https://plotnine.readthedocs.io/">plotnine docs</a></li>
+<li><a href="https://plotnine.readthedocs.io/en/stable/generated/plotnine.geoms.geom_text.html">geom_text() API page</a></li>
+</ul>
 <aside class="notes">
 <p>In the exercises, you’ll practice creating other scatter plots to compare variables across countries, and in the rest of this chapter you’ll learn more ways to communicate information in a graph.</p>
 <style type="text/css">
@@ -512,7 +612,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'h.v',
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -553,7 +653,7 @@
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,

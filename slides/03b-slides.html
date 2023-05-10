@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -333,8 +398,8 @@
 </div>
 
 </section>
-<section class="slide level2">
-
+<section id="the-group_by-verb" class="title-slide slide level1 center">
+<h1>The group_by verb</h1>
 <aside class="notes">
 <p>In the last lesson, you used the summarize verb to calculate an average either,</p>
 <ul>
@@ -357,7 +422,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-group_by-verb" class="title-slide slide level1 center">
+
+<section id="the-group_by-verb-1" class="title-slide slide level1 center">
 <h1>The group_by verb</h1>
 
 <img data-src="./model_group_by.png" class="r-stretch"><aside class="notes">
@@ -379,6 +445,9 @@
 <section id="the-summarize-verb" class="title-slide slide level1 center">
 <h1>The summarize verb</h1>
 <div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>(music_top200</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"Japan"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="op">&gt;&gt;</span> summarize(avg_duration <span class="op">=</span> _.duration.mean()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -418,6 +487,10 @@
 <section id="summarizing-by-country" class="title-slide slide level1 center">
 <h1>Summarizing by country</h1>
 <div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>(music_top200</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="op">&gt;&gt;</span> group_by(_.country)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="op">&gt;&gt;</span> summarize(avg_duration <span class="op">=</span> _.duration.mean())</span>
+<span id="cb2-4"><a href="#cb2-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -490,6 +563,13 @@
 <section id="summarizing-by-continent-and-position" class="title-slide slide level1 center">
 <h1>Summarizing by continent and position</h1>
 <div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>(music_top200</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="op">&gt;&gt;</span> group_by(_.continent, _.position)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="op">&gt;&gt;</span> summarize(</span>
+<span id="cb3-4"><a href="#cb3-4"></a>      min_streams <span class="op">=</span> _.streams.<span class="bu">min</span>(),</span>
+<span id="cb3-5"><a href="#cb3-5"></a>      max_streams <span class="op">=</span> _.streams.<span class="bu">max</span>()</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  )</span>
+<span id="cb3-7"><a href="#cb3-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -577,6 +657,13 @@
 <section id="summarizing-by-continent-and-position-1" class="slide level2">
 <h2>Summarizing by continent and position</h2>
 <div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>(music_top200</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="op">&gt;&gt;</span> summarize(</span>
+<span id="cb4-4"><a href="#cb4-4"></a>      min_streams <span class="op">=</span> _.streams.<span class="bu">min</span>(),</span>
+<span id="cb4-5"><a href="#cb4-5"></a>      max_streams <span class="op">=</span> _.streams.<span class="bu">max</span>()</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  )</span>
+<span id="cb4-7"><a href="#cb4-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -615,6 +702,13 @@
 <section id="summarizing-by-continent-and-position-2" class="slide level2">
 <h2>Summarizing by continent and position</h2>
 <div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>(music_top200</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.continent <span class="op">==</span> <span class="st">"Oceania"</span>, _.position <span class="op">==</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="op">&gt;&gt;</span> summarize(</span>
+<span id="cb5-4"><a href="#cb5-4"></a>      min_streams <span class="op">=</span> _.streams.<span class="bu">min</span>(),</span>
+<span id="cb5-5"><a href="#cb5-5"></a>      max_streams <span class="op">=</span> _.streams.<span class="bu">max</span>()</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  )</span>
+<span id="cb5-7"><a href="#cb5-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -653,6 +747,13 @@
 <section id="summarizing-by-continent-and-position-3" class="slide level2">
 <h2>Summarizing by continent and position</h2>
 <div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>(music_top200</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="op">&gt;&gt;</span> group_by(_.continent, _.position)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="op">&gt;&gt;</span> summarize(</span>
+<span id="cb6-4"><a href="#cb6-4"></a>      min_streams <span class="op">=</span> _.streams.<span class="bu">min</span>(),</span>
+<span id="cb6-5"><a href="#cb6-5"></a>      max_streams <span class="op">=</span> _.streams.<span class="bu">max</span>()</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  )</span>
+<span id="cb6-7"><a href="#cb6-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -794,7 +895,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'h.v',
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -835,7 +936,7 @@
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,

@@ -398,8 +398,8 @@
 </div>
 
 </section>
-<section class="slide level2">
-
+<section id="the-filter-verb" class="title-slide slide level1 custom-title center">
+<h1>The filter verb</h1>
 <aside class="notes">
 <p>Now that you’ve seen some code in action on the music data, we’ll focus on writing your own code.</p>
 <p>In this chapter, you’ll learn about the “verbs” in the siuba package. The first verb you’ll use is filter.</p>
@@ -415,7 +415,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-filter-verb" class="title-slide slide level1 center">
+
+<section id="the-filter-verb-1" class="title-slide slide level1 center">
 <h1>The filter verb</h1>
 
 <img data-src="model-filter.png" class="r-stretch"><aside class="notes">
@@ -527,6 +528,9 @@
 <section id="filter-for-top-songs-1" class="title-slide slide level1 center">
 <h1>Filter for top songs</h1>
 <div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>(music_top200</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.position <span class="op">==</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -638,6 +642,9 @@
 <section id="filter-for-country" class="title-slide slide level1 center">
 <h1>Filter for country</h1>
 <div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>(music_top200</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.country <span class="op">==</span> <span class="st">"United States"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -749,6 +756,9 @@
 <section id="filter-with-two-variables" class="title-slide slide level1 center">
 <h1>Filter with two variables</h1>
 <div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>(music_top200</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.position <span class="op">==</span> <span class="dv">1</span>, _.country <span class="op">==</span> <span class="st">"United States"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -800,6 +810,10 @@
 
 <section id="lets-practice" class="title-slide slide level1 center">
 <h1>Let’s practice!</h1>
+<ul>
+<li><a href="https://siuba.org/guide/verb-filter.html">siuba guide - filter</a></li>
+<li><a href="https://siuba.org/api/filter.html">siuba api - filter</a></li>
+</ul>
 <aside class="notes">
 <p>Scroll down to investigate the music data with filter.</p>
 <style type="text/css">
@@ -870,7 +884,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'h.v',
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -911,7 +925,7 @@
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,

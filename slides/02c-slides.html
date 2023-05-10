@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -333,17 +398,8 @@
 </div>
 
 </section>
-<section class="slide level2">
-
-<ul>
-<li>filter artist, get characteristics</li>
-<li>try different combinations of characteristics–which ones seem most related?</li>
-<li>diagnose error (unquoted ggplot)</li>
-<li>diagnose error (verb without _)</li>
-<li>plot with aesthetics</li>
-<li>plot text instead</li>
-<li>labs?</li>
-</ul>
+<section id="using-plotnine-aesthetics" class="title-slide slide level1 custom-title center">
+<h1>Using plotnine Aesthetics</h1>
 <aside class="notes">
 <p>In this lesson, you’ll use plotnine aesthetics to set more than just the position of points on a plot, but other features too–such as size and color.</p>
 <style type="text/css">
@@ -358,9 +414,18 @@
           display:block!important;
       }</style></aside>
 </section>
+
 <section id="scatterplots" class="title-slide slide level1 center">
 <h1>Scatterplots</h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>billie <span class="op">=</span> <span class="bu">filter</span>(track_features, _.artist <span class="op">==</span> <span class="st">"Billie Eilish"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>(billie</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>))</span>
+<span id="cb1-5"><a href="#cb1-5"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb1-6"><a href="#cb1-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02c-slides_files/figure-revealjs/cell-3-output-1.png" class="r-stretch"><aside class="notes">
 <p>You’ve learned how to create a scatter plot to compare two variables within your data using two visual aesthetics: energy x-axis, and valence on the y-axis.</p>
 <style type="text/css">
@@ -379,6 +444,7 @@
 <section id="additional-variables" class="title-slide slide level1 center">
 <h1>Additional variables</h1>
 <div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>billie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -512,7 +578,13 @@
 
 <section id="the-color-aesthetic" class="title-slide slide level1 center">
 <h1>The color aesthetic</h1>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>(billie</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, color <span class="op">=</span> <span class="st">"acousticness"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02c-slides_files/figure-revealjs/cell-5-output-1.png" class="r-stretch"><aside class="notes">
 <p>The scatterplot shows that songs with higher energy, tend to have higher valence. Another variable that might be related to energy is <code>acousticness</code>.</p>
 <p>You can explore this relationship by setting the color of your points, like you see here. To use this aesthetic, you add color equals acousticness inside the aes, next to x equals energy and y equals valence.</p>
@@ -533,7 +605,13 @@
 
 <section id="the-size-aesthetic" class="title-slide slide level1 center">
 <h1>The size aesthetic</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>(billie</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, color <span class="op">=</span> <span class="st">"acousticness"</span>, size <span class="op">=</span> <span class="st">"popularity"</span>))</span>
+<span id="cb4-3"><a href="#cb4-3"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb4-4"><a href="#cb4-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02c-slides_files/figure-revealjs/cell-6-output-1.png" class="r-stretch"><aside class="notes">
 <p>Another variable you may want to include in the graph is population, represented by the pop variable in the dataset.</p>
 <p>One way to represent it is with the size of the points in the scatterplot, with higher popularity songs getting larger points.</p>
@@ -556,7 +634,16 @@
 
 <section id="aesthetics-with-multiple-geoms" class="title-slide slide level1 center">
 <h1>Aesthetics with multiple geoms</h1>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>(billie</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, </span>
+<span id="cb5-3"><a href="#cb5-3"></a>                color <span class="op">=</span> <span class="st">"acousticness"</span>, size <span class="op">=</span> <span class="st">"popularity"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>                label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
+<span id="cb5-5"><a href="#cb5-5"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb5-6"><a href="#cb5-6"></a>   <span class="op">+</span> geom_text(nudge_y <span class="op">=</span> <span class="fl">.1</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="02c-slides_files/figure-revealjs/cell-7-output-1.png" class="r-stretch"><aside class="notes">
 <p>Notice that in this plot, the aesthetics set effect both the points and the text.</p>
 <style type="text/css">
@@ -644,7 +731,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'h.v',
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -685,7 +772,7 @@
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,

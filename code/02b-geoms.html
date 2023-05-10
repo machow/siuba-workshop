@@ -193,6 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/all-slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
     <a href="https://github.com/machow/siuba-workshop" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -357,67 +361,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<iframe class="slide-deck" src="../slides/02b-slides.html"></iframe>
+<p>Click <a href="../slides/02b-slides.html">here</a> to open the slides full screen.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setup <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setup <span class="im">import</span> ___, _</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>import slides from ‘../slides/02b-slides.markdown’</p>
-<p>&lt;RevealSlides :slides=“slides” /&gt;</p>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1:</h3>
-<p>The options below let you change different arguments to <code>geom_text()</code>. Try changing them and running the code, in order to get a readable plot. Then, answer the questions underneath the plot.</p>
-<p>import CodeCellTemplater from ‘~/components/Cell/CodeCellTemplater.vue’</p>
-<p>&lt;CodeCellTemplater :templateVars=“$frontmatter.exercise_pars[0]” :status=“nb.status” :onExecute=“nb.execute” language=“python” &gt;</p>
-<pre><code>(track_features
-  &gt;&gt; filter(_.artist == "Queen")
-  &gt;&gt; ggplot(aes("energy", "valence", label = "track_name"))
-   + geom_point()
-   + geom_text(size = ${this.size}, ha = "${this.ha}", ${this.nudge})
-)    </code></pre>
-<p><template v-slot:output="">
-<p><img src="../assets/02b-queen-plot.png" class="img-fluid"></p>
-<p></p></template></p>
-<p></p>
-<p>
-Below are three songs at different corners of the graph. Can you tell whether they have high or low energy? Valence? Which do you think has low energy and low valence?
-</p>
-<div style="display: flex; width: 100%; flex-grow: 1;">
-<div style="flex: 1 0;">
-<p>
-Hammer to Fall
-</p>
-<iframe width="200" src="https://www.youtube.com/embed/JU5LMG3WFBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-</div>
-<div style="flex: 1 0;">
-<p>
-Crazy Little Thing Called Love
-</p>
-<iframe width="200" src="https://www.youtube.com/embed/zO6D_BAuYCI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-</div>
-<div style="flex: 1 0;">
-<p>
-Love of My Life
-</p>
-<iframe width="200" src="https://www.youtube.com/embed/7hFeER3_ZRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-</div>
-</div>
-</section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2:</h3>
-<p>This exercise is a case study on selecting extreme differences between two features, such as energy and acousticness.</p>
-<p>At the end of the case study, you’ll be prompted to add code!</p>
-<p>Generally tracks with higher energy tend to be less acoustic, as shown in the plot below.</p>
+<p>The code below uses <code>geom_text()</code>. Try changing options and then re-running the code, in order to get a readable plot. Then, answer the questions underneath the plot.</p>
+<p><strong>Options to set:</strong></p>
+<ul>
+<li>Change <code>size = 11</code> to <code>size = 5</code>. Try out sizes 7 and 14.</li>
+<li>Change horizontal align from <code>ha = "center"</code> to <code>ha = "left"</code>.
+<ul>
+<li>How about <code>"right"</code>?</li>
+</ul></li>
+<li>Change nudge from <code>nudge_y = 0</code> to <code>nudge_y = .05</code>, or <code>nudge_x = .05</code>.
+<ul>
+<li>What about <code>-.05</code>?</li>
+</ul></li>
+</ul>
+<p><strong>Code</strong></p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.popularity <span class="op">&gt;</span> <span class="dv">33</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"acousticness"</span>))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"Queen"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"valence"</span>, label <span class="op">=</span> <span class="st">"track_name"</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_point()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_text(size <span class="op">=</span> <span class="dv">11</span>, ha <span class="op">=</span> <span class="st">"center"</span>, nudge_y <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
 findfont: Font family 'Noto Sans CJK JP' not found.
 findfont: Font family 'Noto Sans CJK JP' not found.
 findfont: Font family 'Noto Sans CJK JP' not found.
@@ -452,14 +484,88 @@ findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
 <p><img src="02b-geoms_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<p>
+Below are three songs at different corners of the graph. Can you tell whether they have high or low energy? Valence? Which do you think has low energy and low valence?
+</p>
+<div style="display: flex; width: 100%; flex-grow: 1;">
+<div style="flex: 1 0;">
+<p>
+Hammer to Fall
+</p>
+<iframe width="200" src="https://www.youtube.com/embed/JU5LMG3WFBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</div>
+<div style="flex: 1 0;">
+<p>
+Crazy Little Thing Called Love
+</p>
+<iframe width="200" src="https://www.youtube.com/embed/zO6D_BAuYCI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</div>
+<div style="flex: 1 0;">
+<p>
+Love of My Life
+</p>
+<iframe width="200" src="https://www.youtube.com/embed/7hFeER3_ZRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2:</h3>
+<p>This exercise is a case study on selecting extreme differences between two features, such as energy and acousticness.</p>
+<p>At the end of the case study, you’ll be prompted to add code!</p>
+<p>Generally tracks with higher energy tend to be less acoustic, as shown in the plot below.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.popularity <span class="op">&gt;</span> <span class="dv">33</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"energy"</span>, <span class="st">"acousticness"</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.
+findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02b-geoms_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p>But notice that in the plot above, there’s a point in the top right, that is high energy and high acousticness.</p>
 <p>In order to find high energy and acousticness songs like this, I used the following code.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.energy <span class="op">&gt;</span> <span class="fl">.9</span>, _.popularity <span class="op">&gt;</span> <span class="dv">33</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.acousticness)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.energy <span class="op">&gt;</span> <span class="fl">.9</span>, _.popularity <span class="op">&gt;</span> <span class="dv">33</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> arrange(<span class="op">-</span>_.acousticness)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
@@ -575,12 +681,12 @@ findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
 </div>
 </div>
 <p>Can you plot songs by MC Kevin o Chris, with both points and text?</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"MC Kevin o Chris"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ___</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"MC Kevin o Chris"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ___</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 ⚠️: <b>Don't forget to replace all the blanks!</b>
 </div>
 </div>
