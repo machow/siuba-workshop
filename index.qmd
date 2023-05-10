@@ -50,6 +50,14 @@ Some experience with pandas will be useful, but is not necessary!
 
 ## Preparation
 
+We'll walk you through these steps:
+
+* [Setting up github codespaces](/help/setup.html#opening-the-workshop-in-a-github-codespace)
+* [Using jupyter lab](/help/setup.html#using-jupyterlab-for-the-code-exercises)
+
 ## Using this site
 
-[all slides](slides/all-slides.qmd)
+The content for this workshop is broken into about 12 lessons. Each lesson contains slides,
+followed by exercises.
+
+You can also view [all the slides together](/slides/all-slides.html).
