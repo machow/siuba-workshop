@@ -364,17 +364,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <iframe class="slide-deck" src="../slides/02d-slides.html"></iframe>
 <p>Click <a href="../slides/02d-slides.html">here</a> to open the slides full screen.</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setup <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setup <span class="im">import</span> ___, _</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setup <span class="im">import</span> ___</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> music_top200 <span class="im">import</span> music_top200, track_features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1:</h3>
-<p><strong>TODO</strong></p>
-</section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2:</h3>
-<p>Below is the start of plotnine’s documentation for <code>facet_wrap</code>.</p>
-<p><img src="../assets/facet_wrap_docs.png" style="width: 100%;"></p>
+<p>Take a look at plotnine’s documentation for <a href="https://plotnine.readthedocs.io/en/stable/generated/plotnine.facets.facet_wrap.html">facet_wrap</a>.</p>
 <p>Notice that the Parameters section lists <code>ncol</code> and <code>nrow</code> options. These determine how many columns or rows to use. For example, the plot below has <code>nrow = 1</code>.</p>
 <p>Try out the plot as is, and with the <code>nrow</code> argument changed to <code>ncol = 1</code>. Then, answer the questions below.</p>
 <div class="cell" data-execution_count="2">
@@ -544,6 +543,11 @@ answer
 </summary>
 <p>This is subjective, but I would say energy is easier to compare, since there is only one x-axis for across all plots. (For example, there is a only one spot on the x-axis where energy is .25).</p>
 </details>
+</section>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2:</h3>
+<p>plotnine also has a function called <a href="https://plotnine.readthedocs.io/en/stable/generated/plotnine.facets.facet_grid.html"><code>facet_grid</code></a>. Based on the docs, can you think of a situation where you’d use <code>facet_grid()</code> over <code>facet_wrap()</code>?</p>
+<p>Here is a code block to experiment.</p>
 
 
 </section>
