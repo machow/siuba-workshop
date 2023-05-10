@@ -1,3 +1,25 @@
 ---
 title: Setup
 ---
+
+## Open github codespace
+
+* step by step
+
+## Use jupyter lab
+
+* opening lesson
+* running code
+* expanding solution
+* explain multiple choice
+* table of contents
+* a little background on quarto
+
+## Lesson notebooks
+
+* contain slides and exercises
+* can open on the website (link to one)
+
+## Slides
+
+* can open in speaker view to see notes
