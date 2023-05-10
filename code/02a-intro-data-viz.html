@@ -476,40 +476,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> expand_limits(x <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>], y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>])</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
-</div>
 <div class="cell-output cell-output-display">
-<p><img src="02a-intro-data-viz_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+<p><img src="02a-intro-data-viz_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Who has the widest range of danceability? (i.e.&nbsp;biggist difference between highest and lowest)</p>
@@ -543,128 +511,22 @@ Show solution
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that this code use a special pandas function to put all</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the data together into a single variable (all_together), to</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make it easy to see all the data together.</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To answer the question, you should replace all_together, with</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the relevant variable (billie, other, etc..)</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>all_together <span class="op">=</span> pd.concat([roddy, billie, other])</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>(all_together</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"danceability"</span>, <span class="st">"speechiness"</span>, color <span class="op">=</span> <span class="st">"artist"</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> expand_limits(x <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>], y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that this code use a special pandas function to put all</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the data together into a single variable (all_together), to</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make it easy to see all the data together.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To answer the question, you should replace all_together, with</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the relevant variable (billie, other, etc..)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>all_together <span class="op">=</span> pd.concat([roddy, billie, other])</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>(all_together</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"danceability"</span>, <span class="st">"speechiness"</span>, color <span class="op">=</span> <span class="st">"artist"</span>))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> expand_limits(x <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>], y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02a-intro-data-viz_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+<p><img src="02a-intro-data-viz_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -683,10 +545,10 @@ hint
 </blockquote>
 </details>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot()</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="02a-intro-data-viz_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
@@ -703,49 +565,12 @@ Show solution
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"duration"</span>, <span class="st">"popularity"</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(track_features</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> ggplot(aes(<span class="st">"duration"</span>, <span class="st">"popularity"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">+</span> geom_point()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02a-intro-data-viz_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+<p><img src="02a-intro-data-viz_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -762,11 +587,11 @@ possible answers
 <p>Does the lowest energy track belong to a “low energy” artist? In this exercise, we’ll explore the questions using tracks by two artists.</p>
 <p>Here is the track data sorted by energy.</p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this code is to help you examine track energy levels </span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  track_features</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> arrange(_.energy)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this code is to help you examine track energy levels </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  track_features</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> arrange(_.energy)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -885,25 +710,25 @@ possible answers
 <p>Notice that Simon Smith has the lowest energy song (“Blagaslavlaju vas”), while Scooter has the highest energy song (“How Much is the Fish?”).</p>
 <p>First, filter the track_features data to create a variable named <code>artist_low</code> that has only tracks by the artist Simon Smith.</p>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create artist_low variable here</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>artist_low <span class="op">=</span> (</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create artist_low variable here</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>artist_low <span class="op">=</span> (</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, create a variable named <code>artist_high</code> with tracks by the artist Scooter, who has the highest energy song.</p>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create artist_high variable here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create artist_high variable here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Based on separate plots of their data, does the artist with the lowest energy track seem to have lower energy songs in general?</p>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine plots of each artist, to answer question</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note, we're examining energy, so to make a scatterplot you could set</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the second variable to anything interesting (e.g. popularity)</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>(___</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine plots of each artist, to answer question</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note, we're examining energy, so to make a scatterplot you could set</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the second variable to anything interesting (e.g. popularity)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>(___</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 ⚠️: <b>Don't forget to replace all the blanks!</b>
 </div>
@@ -920,51 +745,15 @@ Show solution
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>artist_low <span class="op">=</span> track_features <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"Simon Smith"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>artist_high <span class="op">=</span> track_features <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"Scooter"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ggplot(artist_low, aes(<span class="st">"energy"</span>, <span class="st">"popularity"</span>)) <span class="op">+</span> geom_point()</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(artist_high, aes("energy", "popularity")) + geom_point()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.
-findfont: Font family 'Noto Sans CJK JP' not found.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>artist_low <span class="op">=</span> track_features <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"Simon Smith"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>artist_high <span class="op">=</span> track_features <span class="op">&gt;&gt;</span> <span class="bu">filter</span>(_.artist <span class="op">==</span> <span class="st">"Scooter"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ggplot(artist_low, aes(<span class="st">"energy"</span>, <span class="st">"popularity"</span>)) <span class="op">+</span> geom_point()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(artist_high, aes("energy", "popularity")) + geom_point()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02a-intro-data-viz_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+<p><img src="02a-intro-data-viz_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
