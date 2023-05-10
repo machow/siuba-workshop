@@ -177,10 +177,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#open-github-codespace" id="toc-open-github-codespace" class="nav-link active" data-scroll-target="#open-github-codespace">Open github codespace</a></li>
-  <li><a href="#use-jupyter-lab" id="toc-use-jupyter-lab" class="nav-link" data-scroll-target="#use-jupyter-lab">Use jupyter lab</a></li>
+  <li><a href="#opening-the-workshop-in-a-github-codespace" id="toc-opening-the-workshop-in-a-github-codespace" class="nav-link active" data-scroll-target="#opening-the-workshop-in-a-github-codespace">Opening the Workshop in a GitHub Codespace</a></li>
+  <li><a href="#using-jupyterlab-for-the-code-exercises" id="toc-using-jupyterlab-for-the-code-exercises" class="nav-link" data-scroll-target="#using-jupyterlab-for-the-code-exercises">Using JupyterLab for the Code Exercises</a></li>
+  <li><a href="#keep-everything-below" id="toc-keep-everything-below" class="nav-link" data-scroll-target="#keep-everything-below">keep everything below?</a>
+  <ul class="collapse">
   <li><a href="#lesson-notebooks" id="toc-lesson-notebooks" class="nav-link" data-scroll-target="#lesson-notebooks">Lesson notebooks</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -204,37 +207,78 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="open-github-codespace" class="level2">
-<h2 class="anchored" data-anchor-id="open-github-codespace">Open github codespace</h2>
+<section id="opening-the-workshop-in-a-github-codespace" class="level2">
+<h2 class="anchored" data-anchor-id="opening-the-workshop-in-a-github-codespace">Opening the Workshop in a GitHub Codespace</h2>
 <ul>
-<li>step by step</li>
+<li>Navigate to the <a href="https://github.com/machow/siuba-workshop">GitHub repository for the workshop</a>, click the <code>&lt; &gt; Code</code> dropdown, and select <code>Create codespace on main</code></li>
 </ul>
-</section>
-<section id="use-jupyter-lab" class="level2">
-<h2 class="anchored" data-anchor-id="use-jupyter-lab">Use jupyter lab</h2>
+<p><img src="../assets/setup/codespaces-dropdown.png" class="img-fluid"></p>
 <ul>
-<li>opening lesson</li>
-<li>running code</li>
-<li>expanding solution</li>
-<li>explain multiple choice</li>
+<li>Your codespace will initialize. Once done, you’ll get dropped into a browser version of VS Code. Stay on this page until you see that the terminal has finished installing <code>requirements.txt</code></li>
+</ul>
+<p><img src="../assets/setup/requirements-install.png" class="img-fluid"></p>
+<ul>
+<li><p>Once that’s finished, exit VS Code and <a href="https://github.com/machow/siuba-workshop">return to the GitHub repository for the workshop</a></p></li>
+<li><p>Click back into the <code>&lt; &gt; Code</code> dropdown, find the codespace that you just created, and click on the three dots next to it. Click <code>Open in ...</code> and select <code>Open in JupyterLab</code></p></li>
+</ul>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="../assets/setup/column-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="../assets/setup/column-2.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="../assets/setup/column-3.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="using-jupyterlab-for-the-code-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="using-jupyterlab-for-the-code-exercises">Using JupyterLab for the Code Exercises</h2>
+<ul>
+<li>Once dropped in JupyterLab you’ll see a file browser to the left. To open the interactive exercises as notebooks, navigate to the <code>Code</code> folder.</li>
+</ul>
+<p><img src="../assets/setup/code-folder.png" class="img-fluid"></p>
+<ul>
+<li>To open a lesson, right click on the file and select <code>Open With</code> –&gt; <code>Notebook</code></li>
+</ul>
+<p><img src="../assets/setup/open-as-notebook.png" class="img-fluid"></p>
+<ul>
+<li>From here, you can interact with and run the code cells. To run a code cell, click the cell and then the <code>Run</code> button at the top of the file (or click <code>ctrl</code> + <code>enter</code>). Start by running the import cell at the top of the file.</li>
+</ul>
+<p><img src="../assets/setup/run-cell.png" class="img-fluid"></p>
+<ul>
+<li>Throughout the notebook you will see cells with prompts to complete a query. You can see their solutions by clicking on the three dots below the prompt cell.</li>
+</ul>
+<p><img src="../assets/setup/show-solution.png" class="img-fluid"></p>
+<ul>
+<li>Throughout the notebooks you will also see multiple choice questions related to the data exercises. You can see their solutions by clicking on the toggle next to them.</li>
+</ul>
+<p><img src="../assets/setup/multiple-choice.png" class="img-fluid"></p>
+</section>
+<section id="keep-everything-below" class="level2">
+<h2 class="anchored" data-anchor-id="keep-everything-below">keep everything below?</h2>
+<ul>
 <li>table of contents</li>
 <li>a little background on quarto</li>
 </ul>
-</section>
-<section id="lesson-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-notebooks">Lesson notebooks</h2>
+<section id="lesson-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="lesson-notebooks">Lesson notebooks</h3>
 <ul>
 <li>contain slides and exercises</li>
 <li>can open on the website (link to one)</li>
 </ul>
 </section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<section id="slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides">Slides</h3>
 <ul>
 <li>can open in speaker view to see notes</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
