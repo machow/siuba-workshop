@@ -7,7 +7,7 @@ format:
     multiplex: true
     slide-number: true
     controls: true
-    navigation-mode: linear
+    navigation-mode: vertical
     controls-layout: bottom-right
     width: 650
     height: 600
